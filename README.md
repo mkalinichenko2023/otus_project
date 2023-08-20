@@ -10,5 +10,5 @@
  - Наличие книг  
  - Итоги продаж  
 ![Логическая схема](/Scripts/Schema_log.jpg)  
-[Физическая схема](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Schema_fiz.jpg)
-[Скрипты создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Create DB.txt)
+[Физическая схема](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Schema_fiz.jpg)   
+[Скрипты создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Create DB.txt)   
