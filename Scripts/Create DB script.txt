@@ -2,7 +2,7 @@
 
 create database mybookshop;
 
-\c mybookshop;
+¥c mybookshop;
 
 create schema bookshop;
 
