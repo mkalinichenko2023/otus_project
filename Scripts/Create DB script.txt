@@ -2,7 +2,7 @@
 
 create database mybookshop;
 
-¥c mybookshop;
+\c mybookshop;
 
 create schema bookshop;
 
@@ -17,15 +17,13 @@ create table books(bk_id          integer,
                    bk_annotation  varchar(4000),
              constraint Books_pkey primary key(bk_id));
 comment on table books is 'Книги';
-
 comment on column books.bk_id is 'Идентификатор';
 comment on column books.bk_name is 'Название';
 comment on column books.bk_author is 'Автор';
 comment on column books.bk_year is 'Год издания';
 comment on column books.bk_publish is 'Издательство';
 comment on column books.bk_annotation is 'Аннтоция';
-create sequence books_bk_id_seq start with 1 increment by 1 
-minvalue 1 maxvalue 9999999 cache 1 owned by books.bk_id;
+create sequence books_bk_id_seq start with 1 increment by 1 minvalue 1 maxvalue 9999999 cache 1 owned by books.bk_id;
 
 create or replace function fOnUpdBooks()
 returns trigger
