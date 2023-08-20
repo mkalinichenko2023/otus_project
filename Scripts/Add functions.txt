@@ -1,4 +1,4 @@
---�������� �� "������� ������� ����" ProductsRange
+--Триггеры на "витрину наличия книг" ProductsRange  
 create or replace function fOnAddProducts()
 returns trigger
 as
@@ -74,7 +74,7 @@ create trigger trOnUpdateProducts
 after update on Products for each row
 execute function fOnModifProducts();
 
---�������� �� "����� �� ��������" OrdersSummary
+-Триггеры на "отчет по продажам" OrdersSummary  
 create or replace function fOnAddOrders()
 returns trigger
 as
@@ -157,7 +157,8 @@ create trigger trOnUpdateOrders
 after update on Orders for each row
 execute function fOnModifOrders();
 
---������� �������� Insert
+--Функции для сценариев тестирования pgbench  
+--Функция создания нового заказа (основное действие Insert)  
 create or replace function fNewOrder(Cust_id integer,Prod_id integer,OrdDt timestamp,OrdCnt integer)
 returns bookshop.Orders
 as
@@ -169,11 +170,12 @@ $BODY$
 $BODY$
 language sql;
 
+--проверим вызов  
 select * from (select floor(random()*max(ct_id))+1 id from bookshop.Customers) c,
               (select floor(random()*max(pr_id))+1 id from bookshop.Products) p,
               bookshop.fNewOrder(c.id::int,p.id::int,(current_date-(floor(random()*90)+1)::int)::timestamp,5);
 
---������� �������� Update
+--Функция для инвентаризации кол-ва книг на складе (основное действие Update)  
 create or replace function fModifProducts(ProdID integer,ProdCnt integer)
 returns table(st_name varchar(500),bk_name varchar(500),bk_author varchar(500),pr_count integer,
               pr_price numeric(9,2),pr_deldays integer,pr_id integer,st_id integer,bk_id integer)
@@ -188,7 +190,7 @@ $BODY$
 $BODY$
 language sql;
 
---������� �������� Select
+--Функция поиска книги (основное действие Select)  
 create or replace function fSearchBook(BookID integer)
 returns table(bk_name varchar(500),bk_author varchar(500),bk_year varchar(30),bk_publish varchar(500),bk_annotation varchar(4000),
               pr_count integer,pr_price numeric(9,2),pr_deldays integer, st_name varchar(500),st_address varchar(1000),st_phone varchar(100))
