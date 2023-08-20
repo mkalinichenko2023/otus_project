@@ -2,7 +2,7 @@
 1. Склады - небольшая таблица, сделала ручную вставку значений по смыслу.   
 ![Скрин](/Screens/insert_storages.jpg)   
 1. Книги  -  большая таблица, скачала из интернет готовый список книг и сделала загрузку в таблицу.
-Исходный файл для загрузки [файл данных книги]((https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/my_books.txt)).   
+Исходный файл для загрузки [файл данных книги](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/my_books.txt).   
 ![Скрин](/Screens/insert_books.jpg.jpg)   
 ![Скрин](/Screens/.jpg)   
 ![Скрин](/Screens/.jpg)   
