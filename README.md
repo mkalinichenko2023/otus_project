@@ -11,4 +11,4 @@
  - Итоги продаж  
 ![Логическая схема](/Scripts/Schema_log.jpg)  
 [Физическая схема](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Schema_fiz.jpg)   
-[Скрипты создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Create%20DB%20Script.txt)   
+[Скрипты создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Create%20DB%20script.txt)   
