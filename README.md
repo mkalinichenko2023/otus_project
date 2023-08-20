@@ -15,3 +15,4 @@
 [2. Скрипты создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Create%20DB%20script.txt)   
 [3. Скрины создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Screens/Create%20DB%20screens.md)   
 [4. Создание триггерных функций для поддержания витрин в актуальном состоянии](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Add%20functions.txt)   
+[5. Скрины триггерных функций для поддержания витрин в актуальном состоянии](https://github.com/mkalinichenko2023/otus_project/tree/main/Screens/Create%20DopFunc.md)   
