@@ -10,9 +10,9 @@
 Также в схеме есть две витрины данных, автоматически заполняемых триггерами по данным базовых таблиц:  
  - Наличие книг
  - Итоги продаж
-![Логическая схема](/Schema_log.jpg)
+![Логическая схема](/Scripts/Schema_log.jpg)
 
 
 
-#### <u>Тема:</u> "Установка и настройка PostgreSQL в Google Kubernetes Engine с помощью Helm-chart". 
+
 - [Домашнее задание. Доп вариант 2](https://github.com/radchenkoam/OTUS-postgres-2020-05/blob/dev/lessons/lesson%20%234%20homework%20gke%20helm.md "Ctrl+click - new tab")
