@@ -9,6 +9,8 @@
 Также в схеме есть две витрины данных, автоматически заполняемых триггерами по данным базовых таблиц:  
  - Наличие книг  
  - Итоги продаж  
-![Логическая схема](/Scripts/Schema_log.jpg)  
-[Физическая схема](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Schema_fiz.jpg)   
-[Скрипты создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Create%20DB%20script.txt)   
+![Логическая схема](/Scripts/Schema_log.jpg)
+Этапы разработки:
+[1. Физическая схема](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Schema_fiz.jpg)   
+[2. Скрипты создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Create%20DB%20script.txt)   
+[3. Срины создания таблиц схемы](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Create%20DB%20screens.md)   
