@@ -1,0 +1,3 @@
+sudo su postgres
+
+pgbench -c 10 -j 2 -P 20 -T 120 -n -r -f /var/tmp/test3.sql -U postgres mybookshop

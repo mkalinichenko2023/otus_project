@@ -1,0 +1,201 @@
+--Триггеры на "витрину наличия книг" ProductsRange
+create or replace function fOnAddProducts()
+returns trigger
+as
+$BODY$
+declare
+  book_name    varchar(500);
+  book_author  varchar(500);
+  row_cnt      integer;
+begin
+  select bk_name,bk_author into book_name,book_author from bookshop.Books b where b.bk_id= New.bk_id;
+
+  select count(*) into row_cnt from bookshop.ProductsRange pp where pp.bk_id=New.bk_id;
+  if row_cnt=0 then
+    insert into bookshop.ProductsRange(bk_id,rg_name,rg_author,rg_tcount,rg_min_price,rg_str_count)
+      values(New.bk_id,book_name,book_author,New.pr_count,New.pr_price,1);
+  else
+    update bookshop.ProductsRange
+    set rg_tcount= rg_tcount+New.pr_count, rg_min_price=least(rg_min_price,New.pr_price), rg_str_count= rg_str_count+1
+    where bk_id=New.bk_id;
+  end if;
+return New;
+end;
+$BODY$
+language plpgsql;
+
+create or replace function fOnModifProducts()
+returns trigger
+as
+$BODY$
+declare
+  book_count  integer;
+  book_price  numeric(9,2);
+  stor_cnt    integer;
+begin
+  select sum(p.pr_count),min(pr_price),count(pr_id) into book_count,book_price,stor_cnt from bookshop.Products p where p.bk_id=Old.bk_id;
+
+  update bookshop.ProductsRange set rg_tcount=book_count, rg_min_price=book_price, rg_str_count=stor_cnt where bk_id=Old.bk_id;
+return New;
+end;
+$BODY$
+language plpgsql;
+
+create or replace function fOnRemProducts()
+returns trigger
+as
+$BODY$
+declare
+  book_count  integer;
+  book_price  numeric(9,2);
+  stor_cnt    integer;
+begin
+  select sum(p.pr_count),min(pr_price),count(pr_id) into book_count,book_price,stor_cnt from bookshop.Products p where p.bk_id=Old.bk_id;
+
+  if stor_cnt=0 then
+    delete from bookshop.ProductsRange pp where pp.bk_id=Old.bk_id;
+  else
+    update bookshop.ProductsRange set  rg_tcount=book_count,  rg_min_price=book_price,  rg_str_count=stor_cnt where  bk_id=Old.bk_id;
+  end if;
+return New;
+end;
+$BODY$
+language plpgsql;
+
+create trigger trOnInsertProducts
+after insert on Products for each row
+execute function fOnAddProducts();
+
+create trigger trOnDeleteProducts
+after delete on Products for each row
+execute function fOnRemProducts();
+
+create trigger trOnUpdateProducts
+after update on Products for each row
+execute function fOnModifProducts();
+
+--Триггеры на "отчет по продажам" OrdersSummary
+create or replace function fOnAddOrders()
+returns trigger
+as
+$BODY$
+declare
+  row_cnt      integer;
+begin
+  select count(*) into row_cnt from bookshop.OrdersSummary os where os.os_date= New.or_date::date;
+
+  if row_cnt=0 then
+    insert into bookshop.OrdersSummary(os_date,os_total_ord_cnt,os_total_smm,os_total_bk_cnt, os_done_ord_cnt,os_done_smm,os_done_bk_cnt)
+      values(New.or_date::date,1,New.or_tprice,New.or_count, 0,0,0);
+  else
+    update bookshop.OrdersSummary
+      set os_total_ord_cnt= os_total_ord_cnt+1, os_total_smm= os_total_smm+New.or_tprice, os_total_bk_cnt= os_total_bk_cnt+New.or_count
+    where os_date=New.or_date::date;
+  end if;
+return New;
+end;
+$BODY$
+language plpgsql;
+
+create or replace function fOnRemOrders()
+returns trigger
+as
+$BODY$
+declare
+  ord_cnt      integer;
+begin
+  begin
+      select os_total_ord_cnt into ord_cnt from bookshop.OrdersSummary os where os.os_date= Old.or_date::date;
+      if ord_cnt>1 then
+        update bookshop.OrdersSummary
+          set os_total_ord_cnt= os_total_ord_cnt-1, os_total_smm= os_total_smm-Old.or_tprice, os_total_bk_cnt=os_total_bk_cnt-Old.or_count
+        where os_date=New.or_date::date;
+        if Old.or_status='Done' then
+          update bookshop.OrdersSummary
+            set os_done_ord_cnt= os_done_ord_cnt-1, os_done_smm= os_done_smm-Old.or_tprice, os_done_bk_cnt= os_done_bk_cnt-Old.or_count
+          where os_date=New.or_date::date;
+        end if;
+      else
+       delete from bookshop.OrdersSummary os where os.os_date= Old.or_date::date;
+      end if;
+    exception when no_data_found then
+      ord_cnt:=0;
+  end;
+return New;
+end;
+$BODY$
+language plpgsql;
+
+create or replace function fOnModifOrders()
+returns trigger
+as
+$BODY$
+declare
+begin
+  delete from bookshop.OrdersSummary os where os.os_date= Old.or_date::date;
+  insert into bookshop.OrdersSummary(os_date,os_total_ord_cnt,os_total_smm,os_total_bk_cnt, os_done_ord_cnt,os_done_smm,os_done_bk_cnt)
+    select Old.or_date::date,count(or_id),sum(or_tprice),sum(or_count),
+       sum(case when or_status='Done' then 1 else 0 end),
+       sum(case when or_status='Done' then or_tprice else 0 end),
+       sum(case when or_status='Done' then or_count else 0 end)
+    from bookshop.Orders where or_date::date=Old.or_date::date;
+return New;
+end;
+$BODY$
+language plpgsql;
+
+
+create trigger trOnInsertOrders
+after insert on Orders for each row
+execute function fOnAddOrders();
+
+create trigger trOnDeletetOrders
+after delete on Orders for each row
+execute function fOnRemOrders();
+
+create trigger trOnUpdateOrders
+after update on Orders for each row
+execute function fOnModifOrders();
+
+--Функция сценария Insert
+create or replace function fNewOrder(Cust_id integer,Prod_id integer,OrdDt timestamp,OrdCnt integer)
+returns bookshop.Orders
+as
+$BODY$
+  insert into bookshop.Orders(or_id,ct_id,pr_id,or_date,or_count,or_tprice,or_deldate,or_status)
+    select nextval('bookshop.orders_or_id_seq'),Cust_id,Prod_id,OrdDt,OrdCnt,OrdCnt*p.pr_price,OrdDt::date+p.pr_deldays,'Create'
+    from bookshop.Products p where p.pr_id=Prod_id
+  returning *;
+$BODY$
+language sql;
+
+select * from (select floor(random()*max(ct_id))+1 id from bookshop.Customers) c,
+              (select floor(random()*max(pr_id))+1 id from bookshop.Products) p,
+              bookshop.fNewOrder(c.id::int,p.id::int,(current_date-(floor(random()*90)+1)::int)::timestamp,5);
+
+--Функция сценария Update
+create or replace function fModifProducts(ProdID integer,ProdCnt integer)
+returns table(st_name varchar(500),bk_name varchar(500),bk_author varchar(500),pr_count integer,
+              pr_price numeric(9,2),pr_deldays integer,pr_id integer,st_id integer,bk_id integer)
+as
+$BODY$
+  update bookshop.Products set pr_count=ProdCnt where pr_id=ProdID;
+
+  select s.st_name,b.bk_name,b.bk_author,pr_count,pr_price,pr_deldays,p.pr_id,p.st_id,p.bk_id
+       from bookshop.Products p,bookshop.Storages s,bookshop.Books b
+       where p.st_id=s.st_id and p.bk_id=b.bk_id
+         and p.pr_id=ProdID;
+$BODY$
+language sql;
+
+--Функция сценария Select
+create or replace function fSearchBook(BookID integer)
+returns table(bk_name varchar(500),bk_author varchar(500),bk_year varchar(30),bk_publish varchar(500),bk_annotation varchar(4000),
+              pr_count integer,pr_price numeric(9,2),pr_deldays integer, st_name varchar(500),st_address varchar(1000),st_phone varchar(100))
+as
+$BODY$
+   select b.bk_name,b.bk_author,b.bk_year,b.bk_publish,b.bk_annotation, p.pr_count,p.pr_price,p.pr_deldays, s.st_name,s.st_address,s.st_phone
+       from bookshop.Products p,bookshop.Books b,bookshop.Storages s
+       where p.bk_id=b.bk_id and p.st_id=s.st_id and p.bk_id=BookID;
+$BODY$
+language sql;

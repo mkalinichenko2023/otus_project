@@ -1,0 +1,1009 @@
+\c MyBookShop;
+
+set search_path = BookShop, pg_catalog;
+
+copy Customers(ct_fio,ct_phone,ct_email,ct_address) from stdin;
+NINA BELOVA	+70125366530	belovanina11041976@postgrespro.ru	Азов
+KIRA SIDOROVA	+70860114943	sidorova.kira_101971@postgrespro.ru	Аксай
+GENNADIY NIKITIN	+70377060762	nikitin_g_111965@postgrespro.ru	Александров
+FEDOR SHEVCHENKO	+70831267614	shevchenkofedor-1963@postgrespro.ru	Алексин, Тульская обл.
+EVGENIY MAKAROV	+70503815446	makarov-e011968@postgrespro.ru	Алушта
+ALFIYA FROLOVA	+70082855303	alfiya-frolova1963@postgrespro.ru	Альметьевск
+NADEZHDA KUZMINA	+70413534843	kuzmina-nadezhda.121975@postgrespro.ru	Анапа
+LYUBOV KUZNECOVA	+70638209723	lyubovkuznecova_12101970@postgrespro.ru	Апатиты
+ALEKSANDR KUZNECOV	+70823958433	kuznecovaleksandr051967@postgrespro.ru	Арзамас
+VERONIKA NIKOLAEVA	+70953819062	nikolaeva_veronika13071954@postgrespro.ru	Армавир
+ELENA MAKAROVA	+70572744523	makarova.elena-07111974@postgrespro.ru	Асбест
+MARIYA SOKOLOVA	+70324651998	sokolova_mariya.1976@postgrespro.ru	Астрахань
+ILNAR SHEVCHENKO	+70383871581	i.shevchenko.041959@postgrespro.ru	Ачинск
+VLADIMIR SOROKIN	+70616185888	vladimirsorokin.061973@postgrespro.ru	Балабаново
+MARINA ZAKHAROVA	+70981616129	zakharova-m.1974@postgrespro.ru	Балаково
+ANASTASIYA MATVEEVA	+70620548971	a_matveeva04041975@postgrespro.ru	Балахна
+VLADIMIR NIKOLAEV	+70140399112	vnikolaev_1966@postgrespro.ru	Балашиха
+ALEKSEY KONOVALOV	+70046118501	a_konovalov-1968@postgrespro.ru	Барнаул
+OKSANA NIKITINA	+70447671931	nikitina.o_081973@postgrespro.ru	Батайск
+ANDREY SOROKIN	+70936801476	a.sorokin.03011970@postgrespro.ru	Бахчисарай
+YANA DAVYDOVA	+70935472804	davydova-y041983@postgrespro.ru	Белгород
+MATVEY POPOV	+70861559501	popovmatvey-081954@postgrespro.ru	Белебей
+ALEKSANDR NOVIKOV	+70855384934	a.novikov_14071966@postgrespro.ru	Белово
+STEPAN SCHERBAKOV	+70267921251	scherbakov.stepan_27111975@postgrespro.ru	Белореченск
+MIKHAIL KUZMIN	+70955255300	mkuzmin_101972@postgrespro.ru	Березники
+DENIS KUZNECOV	+70299141945	kuznecovd1974@postgrespro.ru	Бийск
+ALEKSANDR ZHURAVLEV	+70590987736	aleksandr-zhuravlev-1970@postgrespro.ru	Бор
+ALEKSANDR GORBUNOV	+70760429203	gorbunov.aleksandr.1967@postgrespro.ru	Борисоглебск
+ARTEM KISELEV	+70892601069	kiselev.a28081964@postgrespro.ru	Боровичи
+IRINA VOROBEVA	+70212106431	i.vorobeva011969@postgrespro.ru	Брянск
+ALEKSANDR MAKAROV	+70806484401	makarov_a-13051961@postgrespro.ru	Бугульма
+EKATERINA IVANOVA	+70038510644	ivanova-e1963@postgrespro.ru	Буденновск
+EKATERINA KALININA	+70620336121	e_kalinina-1955@postgrespro.ru	Бутово
+YURIY NIKITIN	+70518693810	yuriy-nikitin071973@postgrespro.ru	Великие Луки
+ALEKSANDR SAVELEV	+70450902749	a.savelev_1978@postgrespro.ru	Великий Новгород
+TATYANA IVANOVA	+70235326894	t-ivanova-1976@postgrespro.ru	Верхняя Пышма
+TAMARA OSIPOVA	+70386792287	tamara_osipova.1959@postgrespro.ru	Видное
+OLGA KONDRATEVA	+70173119239	olga-kondrateva14101978@postgrespro.ru	Владикавказ
+IRINA ORLOVA	+70032251911	orlova-irina.1981@postgrespro.ru	Владимир
+TATYANA FOMINA	+70760750840	t.fomina-28071960@postgrespro.ru	Внуково
+NATALYA ZOTOVA	+70282151122	natalya_zotova_1974@postgrespro.ru	Волгоград
+ANTONINA POPOVA	+70929720436	apopova-031952@postgrespro.ru	Волгодонск
+EKATERINA DMITRIEVA	+70275234145	e-dmitrieva111974@postgrespro.ru	Волжск, Волжский р-н
+LEV FILIPPOV	+70688114495	levfilippov_15041984@postgrespro.ru	Волжский
+MARINA EFIMOVA	+70101140704	efimova-m1979@postgrespro.ru	Вологда
+VLADIMIR KISELEV	+70940844444	kiselev_vladimir.02031976@postgrespro.ru	Волоколамск
+YURIY VASILEV	+70672454440	vasilev_y.20081957@postgrespro.ru	Волхов
+ALEKSANDR IVANOV	+70948810700	aleksandr-ivanov.1971@postgrespro.ru	Воронеж
+ALEKSANDR SIDOROV	+70950001418	aleksandr.sidorov-12071973@postgrespro.ru	Воскресенск
+ARTEM POPOV	+70244928918	artem-popov.071968@postgrespro.ru	Всеволожск, Ленинградская обл.
+KLAVDIYA GUSEVA	+70336540692	guseva-klavdiya_1970@postgrespro.ru	Выборг
+LYUDMILA BELYAEVA	+70251696713	belyaeval-1976@postgrespro.ru	Вязники
+LYUDMILA YUDINA	+70883219946	l-yudina21011979@postgrespro.ru	Вязьма
+ANNA DAVYDOVA	+70027001134	a_davydova031983@postgrespro.ru	Вятские Поляны
+MARINA PAVLOVA	+70521454704	m-pavlova-17071966@postgrespro.ru	Гатчина
+LYUDMILA KOMAROVA	+70389072323	komarova_lyudmila-1975@postgrespro.ru	Геленджик
+NINA KARPOVA	+70693315192	n_karpova-14101958@postgrespro.ru	Георгиевск
+NIKOLAY FROLOV	+70941027346	n-frolov1973@postgrespro.ru	Глазов
+ANAIT POPOVA	+70542545935	a_popova.061971@postgrespro.ru	Горно-Алтайск
+ALEKSEY KONOVALOV	+70561624943	aleksey_konovalov-1973@postgrespro.ru	Гороховец
+ANDREY FEDOROV	+70577050996	a_fedorov-1972@postgrespro.ru	Губкин
+NATALYA ZAYCEVA	+70195925352	natalya.zayceva02051977@postgrespro.ru	Джанкой
+ROMAN ANDREEV	+70268153220	andreev.roman.071959@postgrespro.ru	Дзержинск, Нижегородская обл.
+SARIYA NIKIFOROVA	+70465651965	s_nikiforova-1965@postgrespro.ru	Дзержинский, Московская обл.
+TATYANA BARANOVA	+70479848005	tatyana.baranova-1970@postgrespro.ru	Димитровград
+LYUBOV ANTONOVA	+70353517477	l-antonova1988@postgrespro.ru	Дмитров
+TATYANA KALININA	+70460044650	tkalinina101967@postgrespro.ru	Долгопрудный
+NADEZHDA KONOVALOVA	+70613284909	konovalova_nadezhda.22071963@postgrespro.ru	Домодедово
+EVDOKIYA VLASOVA	+70381804597	evdokiyavlasova_111966@postgrespro.ru	Дубна
+SVETLANA NAZAROVA	+70135147843	svetlana_nazarova.031978@postgrespro.ru	Евпатория
+NINA DAVYDOVA	+70069874535	davydova.nina-041982@postgrespro.ru	Егорьевск
+ALINA VOLKOVA	+70644378927	volkova.alina_03101973@postgrespro.ru	Ейск
+MAKSIM ZHUKOV	+70084503465	m-zhukov061972@postgrespro.ru	Екатеринбург
+TATYANA KUZNECOVA	+70389228708	kuznecova-t-011961@postgrespro.ru	Елец
+IRINA ANTONOVA	+70008655333	antonova.irina04121972@postgrespro.ru	Ессентуки
+VALENTINA KUZNECOVA	+70130566548	kuznecova.valentina10101976@postgrespro.ru	Железнодорожный, округ Балашиха
+ILYA POPOV	+70125671307	popov_ilya.1971@postgrespro.ru	Заречный, Свердловская обл.
+VSEVOLOD BORISOV	+70408848681	borisov_v_1975@postgrespro.ru	Заринск
+NATALYA ROMANOVA	+70419809549	n-romanova.1981@postgrespro.ru	Звенигород
+VALENTINA NIKITINA	+70713122267	nikitinavalentina.1975@postgrespro.ru	Зеленогорск
+GENNADIY GERASIMOV	+70345477185	gerasimov.g111981@postgrespro.ru	Зеленоград
+VIKTOR IVANOV	+70976806526	ivanovviktor1976@postgrespro.ru	Зеленодольск
+OKSANA KOROLEVA	+70622470372	okoroleva1963@postgrespro.ru	Зеленокумск
+NIKOLAY IVANOV	+70462550614	ivanovn1963@postgrespro.ru	Зерноград
+DENIS KUZNECOV	+70013561455	kuznecov-d.1978@postgrespro.ru	Златоуст
+ALEKSANDR DENISOV	+70405615125	adenisov1964@postgrespro.ru	Иваново
+NATALYA BELOVA	+70483776157	natalyabelova.1970@postgrespro.ru	Ижевск
+VLADIMIR POPOV	+70226288309	vladimir_popov.121976@postgrespro.ru	Изобильный
+SVETLANA VLASOVA	+70372240507	vlasova_s.1965@postgrespro.ru	Ирбит
+LYUDMILA MELNIKOVA	+70032424194	melnikova.l.061975@postgrespro.ru	Искитим
+VITALIY ALEKSEEV	+70639956474	alekseev-v.101975@postgrespro.ru	Истра
+NATALYA ZAYCEVA	+70315570694	zayceva-natalya_1965@postgrespro.ru	Ишим
+LEONID ORLOV	+70762352882	l_orlov.13061955@postgrespro.ru	Йошкар-Ола
+SVETLANA POPOVA	+70089893775	s.popova.18041976@postgrespro.ru	Казань
+MARIYA FEDOROVA	+70435719315	m.fedorova-011974@postgrespro.ru	Калуга
+OLEG KUZNECOV	+70046099681	oleg.kuznecov-10101967@postgrespro.ru	Каменск-Уральский
+VLADIMIR ANTONOV	+70004437546	vladimir.antonov.121972@postgrespro.ru	Каменск-Шахтинский
+NIKOLAY VOLKOV	+70367148821	nvolkov_1965@postgrespro.ru	Камышин
+ELENA STEPANOVA	+70479390990	stepanova_e_101981@postgrespro.ru	Канск
+VLADIMIR SEMENOV	+70834948015	v.semenov-111977@postgrespro.ru	Кемерово
+VLADIMIR MIRONOV	+70354624498	mironov-vladimir-02021977@postgrespro.ru	Керчь
+TATYANA OSIPOVA	+70507654039	t.osipova011972@postgrespro.ru	Кимры
+RAISA ROMANOVA	+70648980858	romanova.r-18081971@postgrespro.ru	Кингисепп
+ALEKSANDR SMIRNOV	+70181095269	asmirnov.071957@postgrespro.ru	Кинешма
+IRINA KAZAKOVA	+70054880594	kazakova-irina_061985@postgrespro.ru	Киреевск, Тульская обл.
+ILYA BONDARENKO	+70443047416	bondarenko.ilya_1980@postgrespro.ru	Кириши
+SOFYA DAVYDOVA	+70486577278	sofya.davydova.1966@postgrespro.ru	Киров
+EGOR NIKOLAEV	+70715555385	e_nikolaev-07021970@postgrespro.ru	Кировск, Ленинградская обл.
+VLADIMIR AFANASEV	+70039246682	afanasev-v.25051972@postgrespro.ru	Киселёвск
+SVETLANA LUKYANOVA	+70700551767	lukyanova.s.101976@postgrespro.ru	Кисловодск
+SERGEY MOROZOV	+70636773545	morozovs031982@postgrespro.ru	Клин
+LIDIYA CHERNOVA	+70343749458	lidiya-chernova101971@postgrespro.ru	Клинцы
+SVETLANA SIDOROVA	+70208812463	s-sidorova_031971@postgrespro.ru	Ковров
+ROMAN BARANOV	+70047621196	roman_baranov-1973@postgrespro.ru	Коломна
+ALEKSANDR FEDOROV	+70860388197	fedorov.aleksandr-091971@postgrespro.ru	Колпино
+ALEKSEY EGOROV	+70662185655	egorov.a041974@postgrespro.ru	Коммунарка
+GALINA VOROBEVA	+70471609963	g.vorobeva_081991@postgrespro.ru	Конаково
+PAVEL GERASIMOV	+70864005721	gerasimov_p_12061961@postgrespro.ru	Копейск
+NADEZHDA SOROKINA	+70646698593	sorokinanadezhda-18011975@postgrespro.ru	Кореновск
+ALEKSANDR AFANASEV	+70026253982	afanasev-aleksandr1962@postgrespro.ru	Королев
+ALEKSEY ALEKSANDROV	+70615149361	a-aleksandrov.01061977@postgrespro.ru	Кострома
+NIKITA POPOV	+70230652483	n_popov28051982@postgrespro.ru	Красногорск
+ANDREY IVANOV	+70674634578	andrey-ivanov.1965@postgrespro.ru	Краснодар
+MARIYA IVANOVA	+70846930708	ivanova_mariya-111983@postgrespro.ru	Красное Село
+GENNADIY KISELEV	+70902431548	kiselevgennadiy26051972@postgrespro.ru	Красноперекопск
+VLADIMIR TARASOV	+70708476129	vladimirtarasov.1969@postgrespro.ru	Краснотурьинск
+NATALIYA DANILOVA	+70058293084	danilova_n-21081963@postgrespro.ru	Красноуфимск
+DARYA MASLOVA	+70020543179	dmaslova.041965@postgrespro.ru	Красноярск
+TATYANA IVANOVA	+70117459301	tatyana_ivanova-31121975@postgrespro.ru	Кропоткин
+EKATERINA ANISIMOVA	+70118403026	ekaterina-anisimova.1975@postgrespro.ru	Крымск
+VADIM MIRONOV	+70935513095	v-mironov10091982@postgrespro.ru	Кстово
+ILYA IVANOV	+70302158840	ivanov_i.101985@postgrespro.ru	Кудымкар
+NIKOLAY SOLOVEV	+70815361402	solovev-nikolay_011980@postgrespro.ru	Кунгур
+VYACHESLAV KARPOV	+70962867099	karpov_v_1974@postgrespro.ru	Курган
+DMITRIY GRIGOREV	+70710023537	grigorev_d_1977@postgrespro.ru	Курск
+VASILIY KUZNECOV	+70406884048	kuznecov-v.1967@postgrespro.ru	Кыштым
+NIKOLAY KONOVALOV	+70117849610	konovalov_nikolay1972@postgrespro.ru	Лабинск
+MARIYA AKIMOVA	+70550479774	akimovam.17071963@postgrespro.ru	Ленинск-Кузнецкий
+ANDREY ILIN	+70100250421	ilin.andrey_011968@postgrespro.ru	Липецк
+ANNA ANTONOVA	+70732447908	antonova-anna.01081980@postgrespro.ru	Лобня
+IGOR GAVRILOV	+70047679223	gavrilovi17021977@postgrespro.ru	Луга
+ALEKSEY KOZLOV	+70784273776	kozlov.a.22121969@postgrespro.ru	Люберцы
+MARINA POPOVA	+70231029064	popovam.1973@postgrespro.ru	Людиново
+NIKITA KUZNECOV	+70834466668	nikitakuznecov1983@postgrespro.ru	Магнитогорск
+ANATOLIY NOVIKOV	+70890816419	novikov-anatoliy.08121979@postgrespro.ru	Майкоп
+KIRILL SEMENOV	+70137076461	k-semenov-27081972@postgrespro.ru	Междуреченск
+KSENIYA STEPANOVA	+70674445871	stepanovakseniya_02011966@postgrespro.ru	Мелеуз
+EKATERINA VLASOVA	+70821899504	vlasova.ekaterina.29101970@postgrespro.ru	Миасс
+EKATERINA POTAPOVA	+70997482131	potapova-ekaterina-071974@postgrespro.ru	Минеральные Воды
+GENNADIY MAKAROV	+70836796043	g_makarov-1971@postgrespro.ru	Митино
+ALEKSEY FROLOV	+70800149424	frolov-aleksey-24041970@postgrespro.ru	Михайловск
+ELENA MAKAROVA	+70126824204	e_makarova-16101967@postgrespro.ru	Можайск
+GALINA ORLOVA	+70834161413	orlova_galina1982@postgrespro.ru	Монино
+EVGENIYA GAVRILOVA	+70428202651	e_gavrilova-031978@postgrespro.ru	Мончегорск
+VALENTINA ANTONOVA	+70808337456	antonova.v-1976@postgrespro.ru	Мурино, Всеволожский р-н
+ANATOLIY SEMENOV	+70689263035	semenov.anatoliy-021979@postgrespro.ru	Мурманск
+NINA BELOVA	+70226463575	belova_nina.1969@postgrespro.ru	Муром
+ALEKSANDR GAVRILOV	+70222241949	aleksandrgavrilov.1961@postgrespro.ru	Мытищи
+NATALIYA ILINA	+70806879505	ilina_nataliya-1980@postgrespro.ru	Набережные Челны
+STEPAN EGOROV	+70537897613	s-egorov.031974@postgrespro.ru	Назарово
+ELENA KUZMINA	+70353606609	kuzmina.elena.101972@postgrespro.ru	Назрань
+ANNA TIKHONOVA	+70702445259	tikhonova_anna1983@postgrespro.ru	Нальчик
+VLADIMIR FEDOTOV	+70770401759	fedotov-v1962@postgrespro.ru	Наро-Фоминск
+GALINA KUZNECOVA	+70524143358	galina-kuznecova1968@postgrespro.ru	Нахабино
+TATYANA YAKOVLEVA	+70700841868	yakovleva_tatyana_1970@postgrespro.ru	Невинномысск
+EKATERINA ZHURAVLEVA	+70671773179	zhuravleva-ekaterina_1971@postgrespro.ru	Нерюнгри
+VALENTINA YUDINA	+70931844638	v.yudina_071959@postgrespro.ru	Нефтекамск
+SERGEY KUZMIN	+70322399861	kuzmin-s-29061965@postgrespro.ru	Нижнекамск
+LYUBOV POPOVA	+70653790854	popovalyubov-1965@postgrespro.ru	Нижний Новгород
+ALEKSANDR KUZNECOV	+70969280942	kuznecov.aleksandr.24031974@postgrespro.ru	Нижний Тагил
+RASHIT KONOVALOV	+70492714162	rashitkonovalov.041963@postgrespro.ru	Нижняя Тура
+LEONID MATVEEV	+70282510688	matveev_leonid_031967@postgrespro.ru	Ново-Переделкино
+NATALYA VOROBEVA	+70551496587	vorobevanatalya1974@postgrespro.ru	Новоалтайск
+ALEKSANDR MAKAROV	+70911049594	makarovaleksandr_1980@postgrespro.ru	Новокузнецк
+ALEKSANDR DMITRIEV	+70277930465	a_dmitriev1966@postgrespro.ru	Новомосковск
+ZOYA KOMAROVA	+70412549221	z_komarova_02071973@postgrespro.ru	Новороссийск
+ANNA YAKOVLEVA	+70055821331	ayakovleva-1965@postgrespro.ru	Новосибирск
+MARIYA PAVLOVA	+70468928595	m_pavlova-08051964@postgrespro.ru	Новотроицк
+SAMIRA KISELEVA	+70953222903	kiselevasamira1971@postgrespro.ru	Новоуральск
+VERONIKA CHERNOVA	+70113116356	veronikachernova-28061969@postgrespro.ru	Новочебоксарск
+ELENA ANDREEVA	+70116667922	andreeva_e-12021972@postgrespro.ru	Новочеркасск
+ROMAN FEDOROV	+70724623727	rfedorov_12011969@postgrespro.ru	Новошахтинск
+ALEKSANDR ALEKSANDROV	+70281243742	aaleksandrov1975@postgrespro.ru	Ногинск
+NATALYA NIKITINA	+70324710550	n_nikitina.1968@postgrespro.ru	Обнинск
+VERA KONOVALOVA	+70465485874	konovalovavera.061982@postgrespro.ru	Обухово, Ногинский р-н
+VLADIMIR MIKHAYLOV	+70842796024	v-mikhaylov_1967@postgrespro.ru	Одинцово
+TAMARA MOROZOVA	+70476008750	t-morozova_21071968@postgrespro.ru	Озерск
+YURIY MELNIKOV	+70210404949	melnikov_yuriy15081977@postgrespro.ru	Октябрьский, Башкортостан респ.
+SVETLANA SMIRNOVA	+70298591508	smirnova-s.11101976@postgrespro.ru	Омск
+TAMARA NAUMOVA	+70419735392	naumova_tamara.1983@postgrespro.ru	Орел
+SANIYA GORBUNOVA	+70223533452	saniya_gorbunova_08091976@postgrespro.ru	Оренбург
+TATYANA EGOROVA	+70663956057	egorova.tatyana021984@postgrespro.ru	Орехово-Зуево
+ANATOLIY YAKOVLEV	+70150428181	anatoliy-yakovlev1968@postgrespro.ru	Орск
+RAISA KONOVALOVA	+70576353057	konovalova-r_26081979@postgrespro.ru	Островцы
+VALENTIN KAZAKOV	+70544011733	kazakov_valentin.29061971@postgrespro.ru	Павлово
+LYUDMILA IVANOVA	+70127405954	ivanova-lyudmila.031969@postgrespro.ru	Павловский Посад
+OLGA MASLOVA	+70056803378	maslova-olga1969@postgrespro.ru	Павшинская Пойма, Московская обл.
+VLADISLAV DAVYDOV	+70564054822	davydov-v.051972@postgrespro.ru	Пенза
+VLADISLAV MIKHAYLOV	+70006353349	mikhaylovv_1971@postgrespro.ru	Первоуральск
+ANTON POPOV	+70889756533	anton.popov101986@postgrespro.ru	Пермь
+VLADIMIR ABRAMOV	+70072145795	abramov_vladimir.1977@postgrespro.ru	Петергоф (Петродворец)
+SVETLANA NIKOLAEVA	+70931496622	snikolaeva.17121969@postgrespro.ru	Петрозаводск
+NATALYA NIKIFOROVA	+70437173802	nnikiforova_1989@postgrespro.ru	Пограничный
+VADIM NIKOLAEV	+70650733196	v.nikolaev1970@postgrespro.ru	Подольск
+PETR KUDRYASHOV	+70658379972	p.kudryashov-1978@postgrespro.ru	Прокопьевск
+ARTEM BELOV	+70459673861	a-belov-091968@postgrespro.ru	Псков
+EVGENIYA TARASOVA	+70043666122	evgeniya.tarasova.1975@postgrespro.ru	Пушкин
+MAKSIM MAKAROV	+70420305995	m_makarov031979@postgrespro.ru	Пушкино
+OLGA SCHERBAKOVA	+70400770234	scherbakovao031964@postgrespro.ru	Пятигорск
+ANDREY NOVIKOV	+70089893775	novikov.andrey_1975@postgrespro.ru	Раменское
+NATALYA NIKOLAEVA	+70522962648	n_nikolaeva28011970@postgrespro.ru	Реутов
+LIDIYA MIKHAYLOVA	+70834948015	mikhaylova-l.1975@postgrespro.ru	Ржев
+VLADIMIR POPOV	+70507654039	vladimir-popov1971@postgrespro.ru	Россошь
+IVAN FROLOV	+70925802732	frolov_i_101966@postgrespro.ru	Ростов-на-Дону
+LYUDMILA BARANOVA	+70819671123	l_baranova02041976@postgrespro.ru	Рубцовск
+EGOR STEPANOV	+70054880594	e.stepanov_1966@postgrespro.ru	Румянцево, поселение Московский
+NINA MALYSHEVA	+70109009286	n.malysheva21101974@postgrespro.ru	Рыбинск
+PAVEL MEDVEDEV	+70225254002	pavel_medvedev_051962@postgrespro.ru	Рязань
+OLEG NOVIKOV	+70417549598	olegnovikov09081960@postgrespro.ru	Саки
+SERGEY MELNIKOV	+70855262921	smelnikov-021971@postgrespro.ru	Салават
+VALENTINA NIKOLAEVA	+70039246682	valentinanikolaeva.071971@postgrespro.ru	Сальск
+ALEKSEY ISAEV	+70695610026	aisaev_06101977@postgrespro.ru	Самара
+VLADIMIR KOZLOV	+70195390929	kozlovv-031978@postgrespro.ru	Санкт-Петербург
+ALEKSANDRA SERGEEVA	+70700551767	sergeeva-a.1969@postgrespro.ru	Саранск
+OLGA FEDOROVA	+70070011194	o_fedorova.15021969@postgrespro.ru	Сарапул
+ALEKSEY SERGEEV	+70051896181	sergeev_aleksey051971@postgrespro.ru	Саратов
+VLADIMIR SMIRNOV	+70343749458	smirnov_v_1971@postgrespro.ru	Саров
+YAROSLAV TIMOFEEV	+70208812463	yaroslavtimofeev1970@postgrespro.ru	Севастополь
+ALEKSANDR IVANOV	+70047621196	ivanov-aleksandr_25071970@postgrespro.ru	Северный (Москва)
+IGOR PETROV	+70289098511	petrov_igor.1973@postgrespro.ru	Северск
+ALEKSEY KUZNECOV	+70727079764	kuznecov.aleksey.1976@postgrespro.ru	Сергиев Посад
+NATALYA MEDVEDEVA	+70203692598	medvedevanatalya1970@postgrespro.ru	Серов
+ALENA EFREMOVA	+70341922702	efremova_alena_121967@postgrespro.ru	Серпухов
+VLADIMIR IVANOV	+70799747342	vladimir_ivanov09071975@postgrespro.ru	Сертолово, Всеволожский р-н, Ленинградская обл.
+SERGEY IVANOV	+70864005721	s_ivanov1972@postgrespro.ru	Сестрорецк
+ANASTASIYA MARTYNOVA	+70059765004	martynova_anastasiya.13101979@postgrespro.ru	Симферополь
+ELIZAVETA ANDREEVA	+70026253982	elizaveta-andreeva.04061980@postgrespro.ru	Славянск-на-Кубани
+PAVEL MIKHAYLOV	+70490862130	mikhaylovpavel.06101975@postgrespro.ru	Смоленск
+ANNA ANTONOVA	+70734784564	antonova.a-09021975@postgrespro.ru	Снежинск
+DMITRIY DENISOV	+70846930708	dmitriydenisov.1964@postgrespro.ru	Солнцево
+NIKITA ROMANOV	+70902431548	nikitaromanov-031971@postgrespro.ru	Сосновый Бор
+GENNADIY IVANOV	+70187185677	gennadiyivanov1969@postgrespro.ru	Сочи
+IRINA ABRAMOVA	+70058293084	i-abramova.02011969@postgrespro.ru	Ставрополь
+NIKITA MAKSIMOV	+70020543179	nmaksimov1984@postgrespro.ru	Старый Оскол
+NATALIYA KAZAKOVA	+70424968735	kazakova-n_29101972@postgrespro.ru	Стерлитамак
+NINA ZOTOVA	+70117459301	zotova-n_011984@postgrespro.ru	Ступино
+EKATERINA ARKHIPOVA	+70118403026	e_arkhipova.081974@postgrespro.ru	Судак
+ALEKSEY EGOROV	+70028214106	aleksey-egorov.091966@postgrespro.ru	Сходня, Московская обл.
+NIKITA SOROKIN	+70846239137	n_sorokin-1968@postgrespro.ru	Сызрань
+RAISA KUZNECOVA	+70935513095	kuznecova_raisa.111973@postgrespro.ru	Сыктывкар
+NIKOLAY STEPANOV	+70302158840	n_stepanov10081967@postgrespro.ru	Таганрог
+KLAVDIYA EGOROVA	+70636911493	klavdiya.egorova_071977@postgrespro.ru	Тамбов
+LARISA EFIMOVA	+70211464650	efimova-larisa.021969@postgrespro.ru	Тарасково, Наро-Фоминский р-н
+LYUDMILA IVANOVA	+70443180323	ivanova-l-07011978@postgrespro.ru	Тверь
+NIKOLAY KOZLOV	+70406884048	nikolaykozlov_041973@postgrespro.ru	Темрюк
+VLADISLAV SOLOVEV	+70117849610	vladislav-solovev_1976@postgrespro.ru	Тихвин
+OLGA KONOVALOVA	+70302791725	olga-konovalova-1970@postgrespro.ru	Тихорецк
+MARIYA GERASIMOVA	+70100250421	gerasimova-m1978@postgrespro.ru	Тобольск
+IRINA TROFIMOVA	+70732447908	trofimova-irina.26031970@postgrespro.ru	Тольятти
+EKATERINA MATVEEVA	+70784273776	matveeva_ekaterina-011975@postgrespro.ru	Томилино
+NADEZHDA KOROLEVA	+70097070764	nadezhda_koroleva_1975@postgrespro.ru	Томск
+NATALYA VASILEVA	+70231029064	nvasileva-06121965@postgrespro.ru	Торжок
+SVETLANA SERGEEVA	+70137076461	sergeevasvetlana.1974@postgrespro.ru	Троицк, Москов. обл.
+LYUBOV FEDOROVA	+70674445871	fedorova_lyubov-031975@postgrespro.ru	Троицк, Чел. обл
+NIKOLAY DMITRIEV	+70528637629	dmitriev-nikolay.15121956@postgrespro.ru	Туапсе
+DMITRIY MAKSIMOV	+70800149424	maksimovdmitriy_1961@postgrespro.ru	Тула
+SVETLANA IVANOVA	+70698651379	ivanova.s.101977@postgrespro.ru	Тюмень
+NIKOLAY SOKOLOV	+70834161413	sokolovn.021979@postgrespro.ru	Ульяновск
+NINA NAZAROVA	+70062284954	nnazarova-13041978@postgrespro.ru	Усть-Лабинск
+SERGEY MOROZOV	+70358057895	s_morozov24111973@postgrespro.ru	Уфа
+ELENA ANTONOVA	+70428202651	eantonova.1972@postgrespro.ru	Учалы
+GALINA IVANOVA	+70689263035	ivanovag.071976@postgrespro.ru	Феодосия
+ANDREY ANTONOV	+70480427913	andrey.antonov_07121977@postgrespro.ru	Фролово
+DANA ARKHIPOVA	+70222241949	dana-arkhipova-031973@postgrespro.ru	Фрязино
+VYACHESLAV POPOV	+70766705038	v_popov-071971@postgrespro.ru	Химки
+OLGA ZAYCEVA	+70215602590	zayceva-o111969@postgrespro.ru	Химки Старые
+YURIY MELNIKOV	+70866049380	melnikov.yuriy.1970@postgrespro.ru	Чайковский
+TAMARA MAKSIMOVA	+70353606609	maksimova_t101978@postgrespro.ru	Чебоксары
+SVETLANA VOROBEVA	+70622452835	vorobeva_s-1965@postgrespro.ru	Челябинск
+NATALYA EFREMOVA	+70702445259	efremovanatalya_1967@postgrespro.ru	Череповец
+EDUARD SERGEEV	+70089324015	sergeev-eduard_1968@postgrespro.ru	Черкесск
+NATALYA MIKHAYLOVA	+70931844638	mikhaylova-n26021977@postgrespro.ru	Чехов
+YURIY BARANOV	+70766843099	baranov_yuriy_07091966@postgrespro.ru	Чусовой
+PAVEL POPOV	+70653790854	popov-pavel.1966@postgrespro.ru	Шадринск
+MARINA ZAYCEVA	+70969280942	zaycevam.061970@postgrespro.ru	Шатура
+VALENTINA KONDRATEVA	+70492714162	kondratevav-1960@postgrespro.ru	Шахты
+MIKHAIL SIDOROV	+70547402538	sidorov.mikhail_18081978@postgrespro.ru	Шушары
+ELENA BORISOVA	+70282510688	borisova_e-011972@postgrespro.ru	Щербинка
+IREK SOLOVEV	+70551496587	solovevirek031965@postgrespro.ru	Электросталь
+VLADIMIR PETROV	+70862375561	petrov_vladimir1980@postgrespro.ru	Элиста
+SVETLANA DENISOVA	+70277930465	denisovasvetlana1961@postgrespro.ru	Энгельс, Саратовская обл.
+IRINA FEDOROVA	+70412549221	fedorova_irina-05091970@postgrespro.ru	Южноуральск
+DMITRIY OSIPOV	+70560597145	osipov_d.091966@postgrespro.ru	Юрга
+ALEKSANDR ZHUKOV	+70125241448	a.zhukov-121981@postgrespro.ru	Юрюзань
+VLADIMIR SMIRNOV	+70113116356	smirnov.vladimir1981@postgrespro.ru	Ялта
+GRIGORIY FOMIN	+70116667922	foming.15031978@postgrespro.ru	Ярославль
+NATALYA ABRAMOVA	+70287136409	n.abramova_051979@postgrespro.ru	Ярцево
+OLEG ROMANOV	+70605746946	oleg-romanov-041985@postgrespro.ru	Азов
+ZOYA TROFIMOVA	+70088954397	zoya-trofimova-061963@postgrespro.ru	Аксай
+ELENA MASLOVA	+70035603330	elenamaslova111960@postgrespro.ru	Александров
+SVETLANA VOROBEVA	+70724623727	vorobevasvetlana_19031975@postgrespro.ru	Алексин, Тульская обл.
+MARGARITA GERASIMOVA	+70281243742	margarita-gerasimova1973@postgrespro.ru	Алушта
+VASILIY YAKOVLEV	+70121704630	yakovlev_v-031967@postgrespro.ru	Альметьевск
+SERGEY EGOROV	+70324710550	s.egorov.16101975@postgrespro.ru	Анапа
+ELENA ALEKSEEVA	+70465485874	e.alekseeva20051972@postgrespro.ru	Апатиты
+KSENIYA GERASIMOVA	+70842796024	kseniya_gerasimova.1956@postgrespro.ru	Арзамас
+LYUDMILA POTAPOVA	+70210404949	l_potapova-1963@postgrespro.ru	Армавир
+ALEKSANDR DMITRIEV	+70831473721	dmitriev.aleksandr.25021973@postgrespro.ru	Асбест
+KLAVDIYA EGOROVA	+70223533452	klavdiya_egorova1977@postgrespro.ru	Астрахань
+VLADISLAV MATVEEV	+70663956057	matveev_v.1974@postgrespro.ru	Ачинск
+NIKITA BONDARENKO	+70617251637	bondarenko_nikita-121974@postgrespro.ru	Балабаново
+ALEKSANDR IVANOV	+70576353057	ivanovaleksandr_1985@postgrespro.ru	Балаково
+SERGEY ZHURAVLEV	+70544011733	s-zhuravlev.111965@postgrespro.ru	Балахна
+NIKOLAY GERASIMOV	+70127405954	gerasimov-nikolay-1982@postgrespro.ru	Балашиха
+VLADIMIR FROLOV	+70357730730	frolovvladimir-051975@postgrespro.ru	Барнаул
+GALINA TIMOFEEVA	+70391925183	timofeeva-g-1960@postgrespro.ru	Батайск
+VLADIMIR KUZMIN	+70056803378	kuzmin_v-021978@postgrespro.ru	Бахчисарай
+DANILA MARTYNOV	+70931496622	martynov.d.1970@postgrespro.ru	Белгород
+ANTON BARANOV	+70537072207	a.baranov.1972@postgrespro.ru	Белебей
+PAVEL KONOVALOV	+70615626510	konovalov.p-04081970@postgrespro.ru	Белово
+ANDREY NOVIKOV	+70048361600	andrey.novikov_071972@postgrespro.ru	Белореченск
+TATYANA SOROKINA	+70459673861	sorokina.tatyana.021982@postgrespro.ru	Березники
+ALEKSANDR NAUMOV	+70420305995	aleksandr_naumov_1972@postgrespro.ru	Бийск
+KSENIYA KUZNECOVA	+70512441812	kseniya_kuznecova041966@postgrespro.ru	Бор
+RASIM AFANASEV	+70400770234	rasim_afanasev07041978@postgrespro.ru	Борисоглебск
+IGOR SOKOLOV	+70674445871	sokolov-igor_1967@postgrespro.ru	Боровичи
+ALEKSEY SHEVCHENKO	+70836796043	aleksey_shevchenko.09101971@postgrespro.ru	Брянск
+ANDREY FILIPPOV	+70698651379	a-filippov.17051966@postgrespro.ru	Бугульма
+NATALYA DMITRIEVA	+70837139718	natalya.dmitrieva-1969@postgrespro.ru	Буденновск
+VADIM PAVLOV	+70057570736	vadim.pavlov_03031961@postgrespro.ru	Бутово
+POLINA NIKIFOROVA	+70428202651	nikiforova-polina.1967@postgrespro.ru	Великие Луки
+SVETLANA PAVLOVA	+70808337456	svetlanapavlova_041984@postgrespro.ru	Великий Новгород
+NINA YAKOVLEVA	+70226463575	yakovlevan_121968@postgrespro.ru	Верхняя Пышма
+ALEKSANDR BORISOV	+70480427913	borisovaleksandr_24011972@postgrespro.ru	Видное
+MIKHAIL KONOVALOV	+70222241949	m_konovalov101977@postgrespro.ru	Владикавказ
+LYUDMILA BORISOVA	+70681851642	borisova-lyudmila_12031984@postgrespro.ru	Владимир
+VLADIMIR DENISOV	+70544342349	vladimir.denisov.22081978@postgrespro.ru	Внуково
+NATALYA MATVEEVA	+70215602590	natalya_matveeva.1964@postgrespro.ru	Волгоград
+NATALYA BOGDANOVA	+70055118510	bogdanova-natalya.20081976@postgrespro.ru	Волгодонск
+GENNADIY NIKOLAEV	+70042154341	nikolaev.gennadiy-15091968@postgrespro.ru	Волжск, Волжский р-н
+NADEZHDA FOMINA	+70045803491	fomina.nadezhda-061970@postgrespro.ru	Волжский
+ANZHELIKA ZAKHAROVA	+70866049380	zakharova.a-23101955@postgrespro.ru	Вологда
+SEMEN FEDOROV	+70353606609	fedorov.semen_071961@postgrespro.ru	Волоколамск
+NINA MIRONOVA	+70622452835	n_mironova041979@postgrespro.ru	Волхов
+YURIY DENISOV	+70524143358	denisov_yuriy_121964@postgrespro.ru	Воронеж
+ALEKSANDR TIKHONOV	+70322399861	tikhonov-aleksandr_071979@postgrespro.ru	Воскресенск
+LEONID SOROKIN	+70653790854	sorokin-leonid.1978@postgrespro.ru	Всеволожск, Ленинградская обл.
+OLGA FADEEVA	+70859133174	ofadeeva_22051976@postgrespro.ru	Выборг
+SERGEY FILIPPOV	+70492714162	sfilippov1973@postgrespro.ru	Вязники
+YURIY SIDOROV	+70729665610	sidorov-yuriy-17021978@postgrespro.ru	Вязьма
+VALERIYA PETROVA	+70335565904	petrovavaleriya-011958@postgrespro.ru	Вятские Поляны
+NIKITA MARTYNOV	+70143471015	martynov.nikita31081968@postgrespro.ru	Гатчина
+SVETLANA BELOVA	+70277930465	svetlana_belova.16061977@postgrespro.ru	Геленджик
+YURIY MIKHAYLOV	+70055821331	mikhaylovyuriy_1976@postgrespro.ru	Георгиевск
+VALENTINA BELOVA	+70251452065	belova-valentina_041979@postgrespro.ru	Глазов
+ALEKSANDR TARASOV	+70468928595	a-tarasov_1975@postgrespro.ru	Горно-Алтайск
+IGOR DENISOV	+70388634879	denisovigor.1976@postgrespro.ru	Гороховец
+KLAVDIYA ARKHIPOVA	+70560597145	k_arkhipova-051975@postgrespro.ru	Губкин
+SERGEY SEMENOV	+70651103379	semenov-sergey121985@postgrespro.ru	Джанкой
+YULIYA BOGDANOVA	+70482539868	bogdanovayuliya_101964@postgrespro.ru	Дзержинск, Нижегородская обл.
+MIKHAIL FROLOV	+70830438590	frolovmikhail-1962@postgrespro.ru	Дзержинский, Московская обл.
+NIKOLAY KRASNOV	+70974884765	krasnov_nikolay_23061978@postgrespro.ru	Димитровград
+VERA SCHERBAKOVA	+70248467169	scherbakova_v.1981@postgrespro.ru	Дмитров
+NATALYA ALEKSEEVA	+70764871283	alekseevanatalya-15041968@postgrespro.ru	Долгопрудный
+NINA KUZMINA	+70287136409	kuzminanina-31011965@postgrespro.ru	Домодедово
+IVAN POPOV	+70605746946	ivanpopov.1985@postgrespro.ru	Дубна
+NATALYA BELYAEVA	+70088954397	belyaeva-n_09111974@postgrespro.ru	Евпатория
+NATALIYA NAZAROVA	+70501691945	nazarovan_16081980@postgrespro.ru	Егорьевск
+OLGA ANISIMOVA	+70724623727	anisimova-olga.111983@postgrespro.ru	Ейск
+VLADIMIR IVANOV	+70281243742	ivanov_vladimir_1977@postgrespro.ru	Екатеринбург
+VERONIKA FADEEVA	+70324710550	fadeeva.veronika_27111964@postgrespro.ru	Елец
+EVGENIYA KUZMINA	+70842796024	evgeniya_kuzmina1972@postgrespro.ru	Ессентуки
+DMITRIY SOKOLOV	+70476008750	sokolov.dmitriy.13121970@postgrespro.ru	Железнодорожный, округ Балашиха
+EVGENIYA TIKHONOVA	+70903649115	e.tikhonova-03121975@postgrespro.ru	Заречный, Свердловская обл.
+NATALYA STEPANOVA	+70780219441	natalya.stepanova-031966@postgrespro.ru	Заринск
+EKATERINA AKIMOVA	+70210404949	akimova-ekaterina.1971@postgrespro.ru	Звенигород
+STEPAN DAVYDOV	+70298591508	s.davydov.081960@postgrespro.ru	Зеленогорск
+VALERIYA IVANOVA	+70831473721	valeriyaivanova.02121974@postgrespro.ru	Зеленоград
+TATYANA FADEEVA	+70419735392	tatyana_fadeeva30011969@postgrespro.ru	Зеленодольск
+VYACHESLAV GAVRILOV	+70223533452	gavrilovvyacheslav1963@postgrespro.ru	Зеленокумск
+VADIM YAKOVLEV	+70663956057	yakovlevvadim_071967@postgrespro.ru	Зерноград
+NATALYA SMIRNOVA	+70391925183	natalya-smirnova-041969@postgrespro.ru	Златоуст
+ALEKSEY SOKOLOV	+70735294818	a-sokolov-1981@postgrespro.ru	Иваново
+YANA GRISHINA	+70056803378	grishina-y22091978@postgrespro.ru	Ижевск
+SVETLANA BELOVA	+70564054822	belova-svetlana_23091976@postgrespro.ru	Изобильный
+TAMARA VOLKOVA	+70006353349	tamara-volkova1976@postgrespro.ru	Ирбит
+ILYA MOROZOV	+70508486036	ilyamorozov.12011977@postgrespro.ru	Искитим
+VITALIY PAVLOV	+70003268424	pavlov_v1966@postgrespro.ru	Истра
+OLGA EFREMOVA	+70615626510	olga_efremova061974@postgrespro.ru	Ишим
+ANDREY ROMANOV	+70650733196	romanov.a1975@postgrespro.ru	Йошкар-Ола
+YURIY BORISOV	+70773560143	borisovy1974@postgrespro.ru	Казань
+ALEKSANDR ORLOV	+70512441812	orlov.aleksandr1957@postgrespro.ru	Калуга
+DANIL MELNIKOV	+70400770234	melnikovd.03111971@postgrespro.ru	Каменск-Уральский
+ELENA ALEKSEEVA	+70055821331	elenaalekseeva-1972@postgrespro.ru	Каменск-Шахтинский
+LYUCIYA SCHERBAKOVA	+70251452065	scherbakova_lyuciya_011968@postgrespro.ru	Камышин
+VALENTINA SOKOLOVA	+70018469134	v.sokolova12091979@postgrespro.ru	Канск
+GALINA BARANOVA	+70388634879	baranovagalina_15121974@postgrespro.ru	Кемерово
+VLADIMIR SOKOLOV	+70560597145	v_sokolov.1970@postgrespro.ru	Керчь
+OLGA MASLOVA	+70482539868	maslova.olga1969@postgrespro.ru	Кимры
+LYUDMILA DMITRIEVA	+70830438590	l.dmitrieva_051984@postgrespro.ru	Кингисепп
+SVETLANA KOVALEVA	+70113116356	svetlana_kovaleva-1988@postgrespro.ru	Кинешма
+TATYANA KONDRATEVA	+70547864322	kondrateva.t-09061962@postgrespro.ru	Киреевск, Тульская обл.
+EVGENIY KUDRYASHOV	+70776886177	kudryashov-e061974@postgrespro.ru	Кириши
+ANNA KONOVALOVA	+70116667922	akonovalova-1968@postgrespro.ru	Киров
+ALLA KUZNECOVA	+70287136409	alla.kuznecova-1969@postgrespro.ru	Кировск, Ленинградская обл.
+ANDREY FROLOV	+70605746946	a.frolov_08041966@postgrespro.ru	Киселёвск
+NATALYA ZAKHAROVA	+70088954397	zakharovanatalya011960@postgrespro.ru	Кисловодск
+ANDREY SAVELEV	+70163594701	asavelev-1975@postgrespro.ru	Клин
+ALEKSANDR VOROBEV	+70281243742	vorobevaleksandr.021966@postgrespro.ru	Клинцы
+KSENIYA YUDINA	+70121704630	yudina.kseniya061972@postgrespro.ru	Ковров
+ZOYA KOMAROVA	+70324710550	komarovaz_1973@postgrespro.ru	Коломна
+DIANA VLASOVA	+70842796024	vlasova_d.081973@postgrespro.ru	Колпино
+ALEKSANDR FEDOTOV	+70476008750	aleksandr_fedotov11121966@postgrespro.ru	Коммунарка
+NATALYA NIKOLAEVA	+70903649115	n_nikolaeva-19061974@postgrespro.ru	Конаково
+ALEKSANDR SAVELEV	+70298591508	a.savelev-061979@postgrespro.ru	Копейск
+VLADIMIR ROMANOV	+70419735392	romanov_v13021978@postgrespro.ru	Кореновск
+VALERIY IVANOV	+70223533452	ivanov-valeriy071964@postgrespro.ru	Королев
+TATYANA BORISOVA	+70617251637	tatyana_borisova121967@postgrespro.ru	Кострома
+SERGEY ZAKHAROV	+70544011733	sergey_zakharov1977@postgrespro.ru	Красногорск
+SERGEY YAKOVLEV	+70127405954	yakovlevs_27091975@postgrespro.ru	Краснодар
+ANDREY ANTONOV	+70357730730	andrey_antonov-1973@postgrespro.ru	Красное Село
+ALEKSANDR GUSEV	+70391925183	gusev-aleksandr-071978@postgrespro.ru	Красноперекопск
+MARGARITA NOVIKOVA	+70735294818	novikova.margarita31071973@postgrespro.ru	Краснотурьинск
+SVETLANA MOROZOVA	+70703842761	morozova-svetlana.1966@postgrespro.ru	Красноуфимск
+SERGEY FILIPPOV	+70564054822	filippovs.06041966@postgrespro.ru	Красноярск
+IVAN SERGEEV	+70006353349	sergeevi.08051969@postgrespro.ru	Кропоткин
+LARISA FEDOROVA	+70508486036	fedorova-larisa.1961@postgrespro.ru	Крымск
+OLGA KALININA	+70003268424	kalinina_o_011977@postgrespro.ru	Кстово
+ANDREY GRIGOREV	+70537072207	grigorev_a-24101977@postgrespro.ru	Кудымкар
+VALENTINA KISELEVA	+70650733196	kiseleva.valentina.071981@postgrespro.ru	Кунгур
+ALBERT KOZLOV	+70048361600	albert-kozlov041974@postgrespro.ru	Курган
+ALEKSANDR FOMIN	+70043666122	fomin.aleksandr_101971@postgrespro.ru	Курск
+ANNA SOKOLOVA	+70420305995	sokolova-anna-10081974@postgrespro.ru	Кыштым
+LYUDMILA ALEKSEEVA	+70773560143	alekseeva.l.041972@postgrespro.ru	Лабинск
+EKATERINA FEDOROVA	+70512441812	e.fedorova_1985@postgrespro.ru	Ленинск-Кузнецкий
+MARIYA KOMAROVA	+70400770234	komarova.m1959@postgrespro.ru	Липецк
+VIKTOR FROLOV	+70632176546	v-frolov_051979@postgrespro.ru	Лобня
+OKSANA NIKITINA	+70272757372	nikitina_o-19071975@postgrespro.ru	Луга
+VERONIKA NESTEROVA	+70544011733	v_nesterova.08121965@postgrespro.ru	Люберцы
+IRINA KOZLOVA	+70056803378	kozlova-irina_071970@postgrespro.ru	Людиново
+SERGEY MEDVEDEV	+70006353349	s_medvedev04111965@postgrespro.ru	Магнитогорск
+YURIY KUZNECOV	+70931496622	yuriy-kuznecov051968@postgrespro.ru	Майкоп
+VIKTOR NIKOLAEV	+70508486036	nikolaevviktor-1960@postgrespro.ru	Междуреченск
+LEONID KUDRYASHOV	+70003268424	leonid_kudryashov041965@postgrespro.ru	Мелеуз
+KRISTINA VASILEVA	+70437173802	vasilevakristina.10081983@postgrespro.ru	Миасс
+ALEKSEY IVANOV	+70650733196	ivanov-aleksey-1974@postgrespro.ru	Минеральные Воды
+ANGELINA ALEKSEEVA	+70459673861	angelina_alekseeva1970@postgrespro.ru	Митино
+ALEKSEY TIKHONOV	+70043666122	tikhonov.aleksey1969@postgrespro.ru	Михайловск
+ZOYA NOVIKOVA	+70773560143	novikova.z.04091974@postgrespro.ru	Можайск
+ALEKSANDR GORBUNOV	+70400770234	aleksandr-gorbunov071968@postgrespro.ru	Монино
+DARYA MARTYNOVA	+70072145795	darya-martynova.121967@postgrespro.ru	Мончегорск
+ANASTASIYA ROMANOVA	+70003268424	romanova_a_1962@postgrespro.ru	Мурино, Всеволожский р-н
+ALEKSEY KOROLEV	+70537072207	aleksey_korolev-071979@postgrespro.ru	Мурманск
+GEORGIY OSIPOV	+70615626510	georgiy-osipov07011970@postgrespro.ru	Муром
+YANA DENISOVA	+70459673861	denisovay_1974@postgrespro.ru	Мытищи
+NAIL DENISOV	+70043666122	denisov-n-1974@postgrespro.ru	Набережные Челны
+MARIYA KOMAROVA	+70400770234	m_komarova1979@postgrespro.ru	Назарово
+SVETLANA BARANOVA	+70650733196	baranovasvetlana071971@postgrespro.ru	Назрань
+VALERIY ZAYCEV	+70658379972	zaycev.v1976@postgrespro.ru	Нальчик
+KLARA FILIPPOVA	+70459673861	k.filippova.1971@postgrespro.ru	Наро-Фоминск
+ELENA KRASNOVA	+70043666122	elena.krasnova-051968@postgrespro.ru	Нахабино
+OKSANA DANILOVA	+70420305995	danilova.oksana.12111969@postgrespro.ru	Невинномысск
+GALINA MIRONOVA	+70420305995	gmironova021976@postgrespro.ru	Нерюнгри
+ANTONINA NOVIKOVA	+70773560143	antonina-novikova-051977@postgrespro.ru	Нефтекамск
+ANDREY SERGEEV	+70512441812	sergeev-andrey-1969@postgrespro.ru	Нижнекамск
+VENIAMIN TARASOV	+70400770234	tarasov-v.1983@postgrespro.ru	Нижний Новгород
+SERGEY VASILEV	+70125366530	vasilev-s-1969@postgrespro.ru	Нижний Тагил
+OLGA MIKHAYLOVA	+70860114943	o.mikhaylova.04011973@postgrespro.ru	Нижняя Тура
+VLADIMIR ALEKSANDROV	+70377060762	v_aleksandrov_1977@postgrespro.ru	Ново-Переделкино
+KSENIYA GRISHINA	+70831267614	kseniya-grishina.03031964@postgrespro.ru	Новоалтайск
+NIKOLAY POPOV	+70503815446	popov_nikolay-071974@postgrespro.ru	Новокузнецк
+IGOR SOROKIN	+70082855303	sorokin-i_16051974@postgrespro.ru	Новомосковск
+OLGA ILINA	+70413534843	o.ilina-02041986@postgrespro.ru	Новороссийск
+ANATOLIY ISAEV	+70638209723	anatoliy.isaev.061962@postgrespro.ru	Новосибирск
+LEONID KONOVALOV	+70823958433	konovalov-leonid.22031966@postgrespro.ru	Новотроицк
+VLADIMIR GAVRILOV	+70953819062	gavrilov.vladimir_1979@postgrespro.ru	Новоуральск
+NINA MAKAROVA	+70572744523	n.makarova.21011974@postgrespro.ru	Новочебоксарск
+OLGA FILATOVA	+70324651998	filatova_o-121964@postgrespro.ru	Новочеркасск
+ALEKSEY IVANOV	+70383871581	a.ivanov_071974@postgrespro.ru	Новошахтинск
+MARINA YAKOVLEVA	+70616185888	myakovleva.021970@postgrespro.ru	Ногинск
+IVAN MARTYNOV	+70981616129	ivan-martynov-28121971@postgrespro.ru	Обнинск
+SERGEY KRASNOV	+70620548971	krasnov-s.18051961@postgrespro.ru	Обухово, Ногинский р-н
+TATYANA KUZNECOVA	+70140399112	tkuznecova021975@postgrespro.ru	Одинцово
+EVGENIY NIKOLAEV	+70046118501	evgeniy.nikolaev08011966@postgrespro.ru	Озерск
+LIDIYA IVANOVA	+70447671931	ivanovalidiya_16081968@postgrespro.ru	Октябрьский, Башкортостан респ.
+ANDREY BORISOV	+70936801476	borisova_1984@postgrespro.ru	Омск
+NIKOLAY EGOROV	+70935472804	n_egorov_1962@postgrespro.ru	Орел
+IRINA MIKHAYLOVA	+70861559501	mikhaylova-i-101964@postgrespro.ru	Оренбург
+SVETLANA KAZAKOVA	+70855384934	kazakova_s_1985@postgrespro.ru	Орехово-Зуево
+VLADIMIR SCHERBAKOV	+70267921251	vscherbakov1966@postgrespro.ru	Орск
+VADIM IVANOV	+70955255300	ivanov.v.19081978@postgrespro.ru	Островцы
+VYACHESLAV SAVELEV	+70299141945	v-savelev_1963@postgrespro.ru	Павлово
+VIKTOR BORISOV	+70590987736	borisov_viktor27121964@postgrespro.ru	Павловский Посад
+ALEKSANDR TIMOFEEV	+70760429203	aleksandr.timofeev_19061974@postgrespro.ru	Павшинская Пойма, Московская обл.
+VITALIY ZAYCEV	+70892601069	zaycev-v-10091964@postgrespro.ru	Пенза
+VIKTOR VOROBEV	+70212106431	vorobevviktor.28061979@postgrespro.ru	Первоуральск
+ANNA POPOVA	+70806484401	anna.popova_1969@postgrespro.ru	Пермь
+ELENA PETROVA	+70038510644	e_petrova031976@postgrespro.ru	Петергоф (Петродворец)
+VYACHESLAV KULIKOV	+70620336121	v-kulikov.02101970@postgrespro.ru	Петрозаводск
+NATALYA CHERNOVA	+70518693810	nchernova-10041976@postgrespro.ru	Пограничный
+MIKHAIL ZAYCEV	+70450902749	zaycev_m-30061969@postgrespro.ru	Подольск
+VALERIY IVANOV	+70235326894	ivanov-valeriy-27081976@postgrespro.ru	Прокопьевск
+TATYANA OSIPOVA	+70386792287	tosipova_051970@postgrespro.ru	Псков
+ALEKSANDRA VOROBEVA	+70173119239	a.vorobeva_091964@postgrespro.ru	Пушкин
+GUZEL KISELEVA	+70032251911	g.kiseleva_1982@postgrespro.ru	Пушкино
+ALEKSANDR OSIPOV	+70760750840	osipov_aleksandr.1967@postgrespro.ru	Пятигорск
+DMITRIY PAVLOV	+70282151122	pavlov_dmitriy-1971@postgrespro.ru	Раменское
+ARTEM SMIRNOV	+70929720436	a_smirnov.091973@postgrespro.ru	Реутов
+OLGA SMIRNOVA	+70275234145	smirnova-o_09121971@postgrespro.ru	Ржев
+DMITRIY MAKAROV	+70688114495	makarovd-19081968@postgrespro.ru	Россошь
+VLADIMIR GAVRILOV	+70101140704	vladimir-gavrilov-1968@postgrespro.ru	Ростов-на-Дону
+ANDREY ANTONOV	+70940844444	a.antonov-1974@postgrespro.ru	Рубцовск
+EKATERINA POPOVA	+70672454440	popova-ekaterina-13011962@postgrespro.ru	Румянцево, поселение Московский
+VLADIMIR MIKHAYLOV	+70948810700	v.mikhaylov_1967@postgrespro.ru	Рыбинск
+ANGELINA KOROLEVA	+70950001418	angelina-koroleva.1974@postgrespro.ru	Рязань
+SERGEY BONDARENKO	+70244928918	sergey_bondarenko04061972@postgrespro.ru	Саки
+DENIS IVANOV	+70336540692	d-ivanov-18091972@postgrespro.ru	Салават
+OLGA MATVEEVA	+70251696713	omatveeva-1968@postgrespro.ru	Сальск
+SERGEY MOROZOV	+70883219946	s_morozov-26061975@postgrespro.ru	Самара
+LYUBOV SEMENOVA	+70027001134	semenova-l_1971@postgrespro.ru	Санкт-Петербург
+TAMARA ORLOVA	+70521454704	orlova.tamara.24071964@postgrespro.ru	Саранск
+VLADIMIR MOISEEV	+70389072323	vladimir.moiseev_09031973@postgrespro.ru	Сарапул
+TATYANA NIKITINA	+70693315192	tatyana.nikitina_121965@postgrespro.ru	Саратов
+SOFIYA POTAPOVA	+70941027346	s-potapova1972@postgrespro.ru	Саров
+TAMARA TIKHONOVA	+70542545935	t_tikhonova041973@postgrespro.ru	Севастополь
+ANTON KOROLEV	+70561624943	antonkorolev_081976@postgrespro.ru	Северный (Москва)
+SERGEY ZAKHAROV	+70577050996	zakharov-s_081971@postgrespro.ru	Северск
+MARIYA SAVELEVA	+70195925352	saveleva_mariya_1977@postgrespro.ru	Сергиев Посад
+IGOR KOZLOV	+70268153220	kozlov-i.021976@postgrespro.ru	Серов
+VALERIY ZAKHAROV	+70465651965	zakharov-v.081962@postgrespro.ru	Серпухов
+VITALIY GAVRILOV	+70479848005	v-gavrilov.1966@postgrespro.ru	Сертолово, Всеволожский р-н, Ленинградская обл.
+YULIYA KOZLOVA	+70353517477	y.kozlova28091978@postgrespro.ru	Сестрорецк
+ARTEM AFANASEV	+70460044650	aafanasev.29111970@postgrespro.ru	Симферополь
+IVAN YAKOVLEV	+70613284909	ivan-yakovlev071973@postgrespro.ru	Славянск-на-Кубани
+NIKOLAY ABRAMOV	+70381804597	abramov_nikolay.091992@postgrespro.ru	Смоленск
+PETR ZHUKOV	+70135147843	zhukov_petr_1982@postgrespro.ru	Снежинск
+VASILIY ROMANOV	+70069874535	romanov.v061974@postgrespro.ru	Солнцево
+VLADIMIR FROLOV	+70644378927	romanov.a1975@postgrespro.ru	Сосновый Бор
+DAMIR TIMOFEEV	+70084503465	borisovy1974@postgrespro.ru	Сочи
+TATYANA ANDREEVA	+70389228708	orlov.aleksandr1957@postgrespro.ru	Ставрополь
+IRINA LUKYANOVA	+70008655333	melnikovd.03111971@postgrespro.ru	Старый Оскол
+DARYA SIDOROVA	+70130566548	elenaalekseeva-1972@postgrespro.ru	Стерлитамак
+GALINA TARASOVA	+70125671307	scherbakova_lyuciya_011968@postgrespro.ru	Ступино
+SERGEY DMITRIEV	+70408848681	v.sokolova12091979@postgrespro.ru	Судак
+ALEKSEY CHERNOV	+70419809549	baranovagalina_15121974@postgrespro.ru	Сходня, Московская обл.
+EVGENIY BELOV	+70713122267	v_sokolov.1970@postgrespro.ru	Сызрань
+VLADIMIR SHEVCHENKO	+70345477185	maslova.olga1969@postgrespro.ru	Сыктывкар
+KSENIYA IVANOVA	+70976806526	l.dmitrieva_051984@postgrespro.ru	Таганрог
+DMITRIY ZHURAVLEV	+70622470372	svetlana_kovaleva-1988@postgrespro.ru	Тамбов
+OKSANA IVANOVA	+70462550614	kondrateva.t-09061962@postgrespro.ru	Тарасково, Наро-Фоминский р-н
+ANDREY PETROV	+70013561455	kudryashov-e061974@postgrespro.ru	Тверь
+OLGA ZOTOVA	+70405615125	akonovalova-1968@postgrespro.ru	Темрюк
+OLGA NIKITINA	+70483776157	alla.kuznecova-1969@postgrespro.ru	Тихвин
+VLADIMIR PETROV	+70226288309	a.frolov_08041966@postgrespro.ru	Тихорецк
+SERGEY MATVEEV	+70372240507	zakharovanatalya011960@postgrespro.ru	Тобольск
+TATYANA KOZLOVA	+70032424194	asavelev-1975@postgrespro.ru	Тольятти
+LILIYA PAVLOVA	+70639956474	vorobevaleksandr.021966@postgrespro.ru	Томилино
+MARINA ALEKSANDROVA	+70315570694	yudina.kseniya061972@postgrespro.ru	Томск
+NADEZHDA PAVLOVA	+70762352882	komarovaz_1973@postgrespro.ru	Торжок
+ALEKSEY ISAEV	+70089893775	vlasova_d.081973@postgrespro.ru	Троицк, Москов. обл.
+VADIM KISELEV	+70435719315	aleksandr_fedotov11121966@postgrespro.ru	Троицк, Чел. обл
+VITALIY VOLKOV	+70046099681	n_nikolaeva-19061974@postgrespro.ru	Туапсе
+NIKOLAY EGOROV	+70004437546	a.savelev-061979@postgrespro.ru	Тула
+SERGEY SMIRNOV	+70367148821	romanov_v13021978@postgrespro.ru	Тюмень
+OLGA TITOVA	+70479390990	ivanov-valeriy071964@postgrespro.ru	Ульяновск
+TAGIR NIKOLAEV	+70834948015	tatyana_borisova121967@postgrespro.ru	Усть-Лабинск
+ZOYA POTAPOVA	+70354624498	sergey_zakharov1977@postgrespro.ru	Уфа
+VLADIMIR MELNIKOV	+70507654039	yakovlevs_27091975@postgrespro.ru	Учалы
+MARIYA MARTYNOVA	+70648980858	andrey_antonov-1973@postgrespro.ru	Феодосия
+ALEKSANDR RODIONOV	+70181095269	gusev-aleksandr-071978@postgrespro.ru	Фролово
+VALENTINA BARANOVA	+70054880594	novikova.margarita31071973@postgrespro.ru	Фрязино
+SERGEY DENISOV	+70443047416	morozova-svetlana.1966@postgrespro.ru	Химки
+SERGEY SOLOVEV	+70486577278	filippovs.06041966@postgrespro.ru	Химки Старые
+ANATOLIY FEDOTOV	+70715555385	sergeevi.08051969@postgrespro.ru	Чайковский
+NATALIYA KOZLOVA	+70039246682	fedorova-larisa.1961@postgrespro.ru	Чебоксары
+YULIYA ZAKHAROVA	+70700551767	kalinina_o_011977@postgrespro.ru	Челябинск
+SERGEY RODIONOV	+70636773545	grigorev_a-24101977@postgrespro.ru	Череповец
+ILMIRA VOLKOVA	+70343749458	kiseleva.valentina.071981@postgrespro.ru	Черкесск
+ARTEM MAKAROV	+70208812463	albert-kozlov041974@postgrespro.ru	Чехов
+NATALYA FOMINA	+70047621196	fomin.aleksandr_101971@postgrespro.ru	Чусовой
+EKATERINA GUSEVA	+70860388197	sokolova-anna-10081974@postgrespro.ru	Шадринск
+MARINA KOZLOVA	+70662185655	alekseeva.l.041972@postgrespro.ru	Шатура
+EKATERINA BORISOVA	+70471609963	e.fedorova_1985@postgrespro.ru	Шахты
+EKATERINA SMIRNOVA	+70864005721	komarova.m1959@postgrespro.ru	Шушары
+MARGARITA ZAKHAROVA	+70646698593	v-frolov_051979@postgrespro.ru	Щербинка
+OLGA RODIONOVA	+70026253982	nikitina_o-19071975@postgrespro.ru	Электросталь
+VALENTINA FADEEVA	+70615149361	v_nesterova.08121965@postgrespro.ru	Элиста
+NATALIYA MELNIKOVA	+70230652483	kozlova-irina_071970@postgrespro.ru	Энгельс, Саратовская обл.
+IRINA POPOVA	+70674634578	s_medvedev04111965@postgrespro.ru	Южноуральск
+ALEKSANDR BARANOV	+70846930708	yuriy-kuznecov051968@postgrespro.ru	Юрга
+OLGA VLASOVA	+70902431548	nikolaevviktor-1960@postgrespro.ru	Юрюзань
+ANATOLIY BORISOV	+70708476129	leonid_kudryashov041965@postgrespro.ru	Ялта
+ANNA DMITRIEVA	+70058293084	vasilevakristina.10081983@postgrespro.ru	Ярославль
+VALERIY TIKHONOV	+70020543179	ivanov-aleksey-1974@postgrespro.ru	Ярцево
+EVGENIYA ALEKSEEVA	+70117459301	angelina_alekseeva1970@postgrespro.ru	Азов
+ARTUR GERASIMOV	+70118403026	tikhonov.aleksey1969@postgrespro.ru	Аксай
+NIKOLAY EGOROV	+70935513095	novikova.z.04091974@postgrespro.ru	Александров
+POLINA ZHURAVLEVA	+70302158840	aleksandr-gorbunov071968@postgrespro.ru	Алексин, Тульская обл.
+ALEKSANDR TIKHONOV	+70815361402	darya-martynova.121967@postgrespro.ru	Алушта
+ALEKSANDR KUZNECOV	+70962867099	romanova_a_1962@postgrespro.ru	Альметьевск
+ANTON BONDARENKO	+70710023537	aleksey_korolev-071979@postgrespro.ru	Анапа
+ALLA TARASOVA	+70406884048	georgiy-osipov07011970@postgrespro.ru	Апатиты
+OKSANA MOROZOVA	+70117849610	denisovay_1974@postgrespro.ru	Арзамас
+RAISA KONOVALOVA	+70550479774	denisov-n-1974@postgrespro.ru	Армавир
+YURIY MEDVEDEV	+70100250421	m_komarova1979@postgrespro.ru	Асбест
+ANZHELIKA ABRAMOVA	+70732447908	baranovasvetlana071971@postgrespro.ru	Астрахань
+PAVEL GUSEV	+70047679223	zaycev.v1976@postgrespro.ru	Ачинск
+TATYANA MAKSIMOVA	+70784273776	k.filippova.1971@postgrespro.ru	Балабаново
+LYUDMILA SOKOLOVA	+70231029064	elena.krasnova-051968@postgrespro.ru	Балаково
+EVGENIY GUSEV	+70834466668	danilova.oksana.12111969@postgrespro.ru	Балахна
+IVAN MEDVEDEV	+70890816419	gmironova021976@postgrespro.ru	Балашиха
+SERGEY RODIONOV	+70137076461	antonina-novikova-051977@postgrespro.ru	Барнаул
+ALEKSANDR NAUMOV	+70674445871	sergeev-andrey-1969@postgrespro.ru	Батайск
+OLESYA BELOVA	+70821899504	belovanina11041976@postgrespro.ru	Бахчисарай
+GLEB SERGEEV	+70997482131	sidorova.kira_101971@postgrespro.ru	Белгород
+ANTONIDA AKIMOVA	+70836796043	nikitin_g_111965@postgrespro.ru	Белебей
+MARIYA KONOVALOVA	+70800149424	shevchenkofedor-1963@postgrespro.ru	Белово
+OKSANA GAVRILOVA	+70126824204	makarov-e011968@postgrespro.ru	Белореченск
+EVGENIY SEMENOV	+70834161413	alfiya-frolova1963@postgrespro.ru	Березники
+ANNA KAZAKOVA	+70428202651	kuzmina-nadezhda.121975@postgrespro.ru	Бийск
+MARINA SEMENOVA	+70808337456	lyubovkuznecova_12101970@postgrespro.ru	Бор
+ANNA BORISOVA	+70689263035	kuznecovaleksandr051967@postgrespro.ru	Борисоглебск
+SERGEY VOLKOV	+70226463575	nikolaeva_veronika13071954@postgrespro.ru	Боровичи
+TATYANA KISELEVA	+70222241949	makarova.elena-07111974@postgrespro.ru	Брянск
+ALEKSANDR MAKSIMOV	+70806879505	sokolova_mariya.1976@postgrespro.ru	Бугульма
+NIKOLAY FOMIN	+70537897613	i.shevchenko.041959@postgrespro.ru	Буденновск
+VYACHESLAV ILIN	+70353606609	vladimirsorokin.061973@postgrespro.ru	Бутово
+DIANA NESTEROVA	+70702445259	zakharova-m.1974@postgrespro.ru	Великие Луки
+LARISA POPOVA	+70770401759	a_matveeva04041975@postgrespro.ru	Великий Новгород
+YURIY ROMANOV	+70524143358	vnikolaev_1966@postgrespro.ru	Верхняя Пышма
+EKATERINA ILINA	+70700841868	a_konovalov-1968@postgrespro.ru	Видное
+RUSLAN PETROV	+70671773179	nikitina.o_081973@postgrespro.ru	Владикавказ
+TATYANA SMIRNOVA	+70931844638	a.sorokin.03011970@postgrespro.ru	Владимир
+MIKHAIL GRIGOREV	+70322399861	davydova-y041983@postgrespro.ru	Внуково
+EKATERINA ZAYCEVA	+70653790854	popovmatvey-081954@postgrespro.ru	Волгоград
+ELENA AFANASEVA	+70969280942	a.novikov_14071966@postgrespro.ru	Волгодонск
+EKATERINA KUZNECOVA	+70492714162	scherbakov.stepan_27111975@postgrespro.ru	Волжск, Волжский р-н
+ALSU KUZNECOVA	+70282510688	mkuzmin_101972@postgrespro.ru	Волжский
+MARIYA FROLOVA	+70551496587	kuznecovd1974@postgrespro.ru	Вологда
+ALEKSANDR SERGEEV	+70911049594	aleksandr-zhuravlev-1970@postgrespro.ru	Волоколамск
+ALEKSANDR SOLOVEV	+70277930465	gorbunov.aleksandr.1967@postgrespro.ru	Волхов
+LYUDMILA ROMANOVA	+70412549221	kiselev.a28081964@postgrespro.ru	Воронеж
+ALEKSEY ALEKSEEV	+70055821331	i.vorobeva011969@postgrespro.ru	Воскресенск
+NADEZHDA PAVLOVA	+70468928595	makarov_a-13051961@postgrespro.ru	Всеволожск, Ленинградская обл.
+KONSTANTIN ANDREEV	+70953222903	ivanova-e1963@postgrespro.ru	Выборг
+RINAT DAVYDOV	+70113116356	e_kalinina-1955@postgrespro.ru	Вязники
+SERGEY SAVELEV	+70116667922	yuriy-nikitin071973@postgrespro.ru	Вязьма
+ALEKSEY AFANASEV	+70724623727	a.savelev_1978@postgrespro.ru	Вятские Поляны
+KONSTANTIN SOLOVEV	+70281243742	t-ivanova-1976@postgrespro.ru	Гатчина
+IVAN KONOVALOV	+70324710550	tamara_osipova.1959@postgrespro.ru	Геленджик
+POLINA EGOROVA	+70465485874	olga-kondrateva14101978@postgrespro.ru	Георгиевск
+NATALYA EGOROVA	+70842796024	orlova-irina.1981@postgrespro.ru	Глазов
+ALEKSANDR RODIONOV	+70476008750	t.fomina-28071960@postgrespro.ru	Горно-Алтайск
+DENIS KUZNECOV	+70210404949	natalya_zotova_1974@postgrespro.ru	Гороховец
+MAKSIM KUZMIN	+70298591508	apopova-031952@postgrespro.ru	Губкин
+MARIYA BARANOVA	+70419735392	e-dmitrieva111974@postgrespro.ru	Джанкой
+NATALYA ZAYCEVA	+70223533452	levfilippov_15041984@postgrespro.ru	Дзержинск, Нижегородская обл.
+ANNA GRISHINA	+70663956057	efimova-m1979@postgrespro.ru	Дзержинский, Московская обл.
+NIKOLAY MOROZOV	+70150428181	kiselev_vladimir.02031976@postgrespro.ru	Димитровград
+ALEKSEY MELNIKOV	+70576353057	vasilev_y.20081957@postgrespro.ru	Дмитров
+EVGENIY KUZNECOV	+70544011733	aleksandr-ivanov.1971@postgrespro.ru	Долгопрудный
+GALINA VLASOVA	+70127405954	aleksandr.sidorov-12071973@postgrespro.ru	Домодедово
+ALEKSANDR VLASOV	+70056803378	artem-popov.071968@postgrespro.ru	Дубна
+IVAN GORBUNOV	+70564054822	guseva-klavdiya_1970@postgrespro.ru	Евпатория
+PELAGEYA BORISOVA	+70006353349	belyaeval-1976@postgrespro.ru	Егорьевск
+OLGA BORISOVA	+70889756533	l-yudina21011979@postgrespro.ru	Ейск
+OLGA ALEKSEEVA	+70072145795	a_davydova031983@postgrespro.ru	Екатеринбург
+GALINA SMIRNOVA	+70931496622	m-pavlova-17071966@postgrespro.ru	Елец
+ALEKSANDR ROMANOV	+70437173802	komarova_lyudmila-1975@postgrespro.ru	Ессентуки
+ALEKSANDR MIKHAYLOV	+70650733196	n_karpova-14101958@postgrespro.ru	Железнодорожный, округ Балашиха
+KLAVDIYA SMIRNOVA	+70658379972	n-frolov1973@postgrespro.ru	Заречный, Свердловская обл.
+GALIYA MOISEEVA	+70459673861	a_popova.061971@postgrespro.ru	Заринск
+BORIS KUZNECOV	+70043666122	aleksey_konovalov-1973@postgrespro.ru	Звенигород
+LILIYA KUZMINA	+70420305995	a_fedorov-1972@postgrespro.ru	Зеленогорск
+SERGEY SEMENOV	+70400770234	natalya.zayceva02051977@postgrespro.ru	Зеленоград
+OLGA SEMENOVA	+70089893775	andreev.roman.071959@postgrespro.ru	Зеленодольск
+TATYANA KALININA	+70522962648	s_nikiforova-1965@postgrespro.ru	Зеленокумск
+VERA MARTYNOVA	+70834948015	tatyana.baranova-1970@postgrespro.ru	Зерноград
+NIKOLAY SOROKIN	+70507654039	l-antonova1988@postgrespro.ru	Златоуст
+VIKTOR PAVLOV	+70925802732	tkalinina101967@postgrespro.ru	Иваново
+TATYANA EGOROVA	+70819671123	konovalova_nadezhda.22071963@postgrespro.ru	Ижевск
+ALEKSANDR ANDREEV	+70054880594	evdokiyavlasova_111966@postgrespro.ru	Изобильный
+NIKOLAY NIKITIN	+70109009286	svetlana_nazarova.031978@postgrespro.ru	Ирбит
+YURIY IVANOV	+70225254002	davydova.nina-041982@postgrespro.ru	Искитим
+OLGA BELYAEVA	+70417549598	volkova.alina_03101973@postgrespro.ru	Истра
+ELENA KULIKOVA	+70855262921	m-zhukov061972@postgrespro.ru	Ишим
+VERA SCHERBAKOVA	+70039246682	kuznecova-t-011961@postgrespro.ru	Йошкар-Ола
+EVGENIYA ZAYCEVA	+70695610026	antonova.irina04121972@postgrespro.ru	Казань
+NIKOLAY MAKAROV	+70195390929	kuznecova.valentina10101976@postgrespro.ru	Калуга
+GALINA NAUMOVA	+70700551767	popov_ilya.1971@postgrespro.ru	Каменск-Уральский
+ANTON SOKOLOV	+70070011194	borisov_v_1975@postgrespro.ru	Каменск-Шахтинский
+OLGA VOLKOVA	+70051896181	n-romanova.1981@postgrespro.ru	Камышин
+ANATOLIY NIKOLAEV	+70343749458	nikitinavalentina.1975@postgrespro.ru	Канск
+NIKOLAY DMITRIEV	+70208812463	gerasimov.g111981@postgrespro.ru	Кемерово
+STEPAN ANDREEV	+70047621196	ivanovviktor1976@postgrespro.ru	Керчь
+NATALYA KRASNOVA	+70289098511	okoroleva1963@postgrespro.ru	Кимры
+IVAN KUDRYASHOV	+70727079764	ivanovn1963@postgrespro.ru	Кингисепп
+ALEKSANDR KOROLEV	+70203692598	kuznecov-d.1978@postgrespro.ru	Кинешма
+IGOR SMIRNOV	+70341922702	adenisov1964@postgrespro.ru	Киреевск, Тульская обл.
+LARISA ANDREEVA	+70799747342	natalyabelova.1970@postgrespro.ru	Кириши
+ANASTASIYA TITOVA	+70864005721	vladimir_popov.121976@postgrespro.ru	Киров
+ELENA ZAYCEVA	+70059765004	vlasova_s.1965@postgrespro.ru	Кировск, Ленинградская обл.
+VALERIY ZHURAVLEV	+70026253982	melnikova.l.061975@postgrespro.ru	Киселёвск
+VALENTINA POPOVA	+70490862130	alekseev-v.101975@postgrespro.ru	Кисловодск
+ALEKSANDR YAKOVLEV	+70734784564	zayceva-natalya_1965@postgrespro.ru	Клин
+MIKHAIL KUZNECOV	+70846930708	l_orlov.13061955@postgrespro.ru	Клинцы
+DMITRIY GRIGOREV	+70902431548	s.popova.18041976@postgrespro.ru	Ковров
+IVAN STEPANOV	+70187185677	m.fedorova-011974@postgrespro.ru	Коломна
+NAILYA OSIPOVA	+70058293084	oleg.kuznecov-10101967@postgrespro.ru	Колпино
+DMITRIY AFANASEV	+70020543179	vladimir.antonov.121972@postgrespro.ru	Коммунарка
+EKATERINA MAKAROVA	+70424968735	nvolkov_1965@postgrespro.ru	Конаково
+NATALYA NESTEROVA	+70117459301	stepanova_e_101981@postgrespro.ru	Копейск
+ALEKSANDR VLASOV	+70118403026	v.semenov-111977@postgrespro.ru	Кореновск
+ANASTASIYA SEMENOVA	+70028214106	mironov-vladimir-02021977@postgrespro.ru	Королев
+VALENTINA MOROZOVA	+70846239137	t.osipova011972@postgrespro.ru	Кострома
+VALERIYA PETROVA	+70935513095	romanova.r-18081971@postgrespro.ru	Красногорск
+SERGEY SHEVCHENKO	+70302158840	asmirnov.071957@postgrespro.ru	Краснодар
+ALEKSANDR GORBUNOV	+70636911493	kazakova-irina_061985@postgrespro.ru	Красное Село
+PAVEL FEDOROV	+70211464650	bondarenko.ilya_1980@postgrespro.ru	Красноперекопск
+ALEKSEY VASILEV	+70443180323	sofya.davydova.1966@postgrespro.ru	Краснотурьинск
+YULIYA SAVELEVA	+70406884048	e_nikolaev-07021970@postgrespro.ru	Красноуфимск
+ANATOLIY NIKITIN	+70117849610	afanasev-v.25051972@postgrespro.ru	Красноярск
+IRINA NAUMOVA	+70302791725	lukyanova.s.101976@postgrespro.ru	Кропоткин
+GALIYA DMITRIEVA	+70100250421	morozovs031982@postgrespro.ru	Крымск
+MARIYA MAKSIMOVA	+70732447908	lidiya-chernova101971@postgrespro.ru	Кстово
+GALINA TIKHONOVA	+70784273776	s-sidorova_031971@postgrespro.ru	Кудымкар
+ANDREY ALEKSEEV	+70097070764	roman_baranov-1973@postgrespro.ru	Кунгур
+NINA SOKOLOVA	+70231029064	fedorov.aleksandr-091971@postgrespro.ru	Курган
+TATYANA ZHURAVLEVA	+70137076461	egorov.a041974@postgrespro.ru	Курск
+MIKHAIL ZHURAVLEV	+70674445871	g.vorobeva_081991@postgrespro.ru	Кыштым
+YULIYA YUDINA	+70528637629	gerasimov_p_12061961@postgrespro.ru	Лабинск
+VLADISLAV KUZNECOV	+70800149424	sorokinanadezhda-18011975@postgrespro.ru	Ленинск-Кузнецкий
+EMIL ISAEV	+70698651379	afanasev-aleksandr1962@postgrespro.ru	Липецк
+VENERA ANDREEVA	+70834161413	a-aleksandrov.01061977@postgrespro.ru	Лобня
+ZINAIDA POPOVA	+70062284954	n_popov28051982@postgrespro.ru	Луга
+VLADIMIR POPOV	+70358057895	andrey-ivanov.1965@postgrespro.ru	Люберцы
+VALERIY NIKITIN	+70428202651	ivanova_mariya-111983@postgrespro.ru	Людиново
+VALENTINA EFIMOVA	+70689263035	kiselevgennadiy26051972@postgrespro.ru	Магнитогорск
+ANNA ZAYCEVA	+70480427913	vladimirtarasov.1969@postgrespro.ru	Майкоп
+LYUBOV IVANOVA	+70222241949	danilova_n-21081963@postgrespro.ru	Междуреченск
+MAKSIM GERASIMOV	+70766705038	dmaslova.041965@postgrespro.ru	Мелеуз
+ELENA NOVIKOVA	+70215602590	tatyana_ivanova-31121975@postgrespro.ru	Миасс
+MAYYA EFIMOVA	+70866049380	ekaterina-anisimova.1975@postgrespro.ru	Минеральные Воды
+VIKTORIYA KALININA	+70353606609	v-mironov10091982@postgrespro.ru	Митино
+NADEZHDA DENISOVA	+70622452835	ivanov_i.101985@postgrespro.ru	Михайловск
+TATYANA VOLKOVA	+70702445259	solovev-nikolay_011980@postgrespro.ru	Можайск
+VLADIMIR PAVLOV	+70089324015	karpov_v_1974@postgrespro.ru	Монино
+SERGEY ZAYCEV	+70931844638	grigorev_d_1977@postgrespro.ru	Мончегорск
+ARTEM SOLOVEV	+70766843099	kuznecov-v.1967@postgrespro.ru	Мурино, Всеволожский р-н
+NIKOLAY MATVEEV	+70653790854	konovalov_nikolay1972@postgrespro.ru	Мурманск
+VALENTINA FEDOROVA	+70969280942	akimovam.17071963@postgrespro.ru	Муром
+IGOR SCHERBAKOV	+70492714162	ilin.andrey_011968@postgrespro.ru	Мытищи
+ALEKSEY ALEKSEEV	+70547402538	antonova-anna.01081980@postgrespro.ru	Набережные Челны
+PETR MOISEEV	+70282510688	gavrilovi17021977@postgrespro.ru	Назарово
+DARYA NIKITINA	+70551496587	kozlov.a.22121969@postgrespro.ru	Назрань
+OLGA FROLOVA	+70862375561	popovam.1973@postgrespro.ru	Нальчик
+ALEKSEY GUSEV	+70277930465	nikitakuznecov1983@postgrespro.ru	Наро-Фоминск
+RAUF NOVIKOV	+70412549221	novikov-anatoliy.08121979@postgrespro.ru	Нахабино
+NATALYA STEPANOVA	+70560597145	k-semenov-27081972@postgrespro.ru	Невинномысск
+IRINA BOGDANOVA	+70125241448	stepanovakseniya_02011966@postgrespro.ru	Нерюнгри
+VALENTINA KAZAKOVA	+70113116356	vlasova.ekaterina.29101970@postgrespro.ru	Нефтекамск
+EVGENIY ZAKHAROV	+70116667922	potapova-ekaterina-071974@postgrespro.ru	Нижнекамск
+ANDREY VOLKOV	+70287136409	g_makarov-1971@postgrespro.ru	Нижний Новгород
+DMITRIY IVANOV	+70605746946	frolov-aleksey-24041970@postgrespro.ru	Нижний Тагил
+TATYANA MATVEEVA	+70088954397	e_makarova-16101967@postgrespro.ru	Нижняя Тура
+TATYANA KUZMINA	+70035603330	orlova_galina1982@postgrespro.ru	Ново-Переделкино
+TATYANA FILIPPOVA	+70724623727	e_gavrilova-031978@postgrespro.ru	Новоалтайск
+IGOR MIRONOV	+70281243742	antonova.v-1976@postgrespro.ru	Новокузнецк
+DMITRIY KUZMIN	+70121704630	semenov.anatoliy-021979@postgrespro.ru	Новомосковск
+EVGENIYA FEDOROVA	+70324710550	belova_nina.1969@postgrespro.ru	Новороссийск
+BOGDAN VLASOV	+70465485874	aleksandrgavrilov.1961@postgrespro.ru	Новосибирск
+DMITRIY FROLOV	+70842796024	ilina_nataliya-1980@postgrespro.ru	Новотроицк
+DMITRIY NIKITIN	+70210404949	s-egorov.031974@postgrespro.ru	Новоуральск
+ELENA KRASNOVA	+70831473721	kuzmina.elena.101972@postgrespro.ru	Новочебоксарск
+YULIYA MOISEEVA	+70223533452	tikhonova_anna1983@postgrespro.ru	Новочеркасск
+VLADIMIR VOLKOV	+70663956057	fedotov-v1962@postgrespro.ru	Новошахтинск
+MARIYA FROLOVA	+70617251637	galina-kuznecova1968@postgrespro.ru	Ногинск
+GALINA GERASIMOVA	+70576353057	yakovleva_tatyana_1970@postgrespro.ru	Обнинск
+ELENA KUZNECOVA	+70544011733	zhuravleva-ekaterina_1971@postgrespro.ru	Обухово, Ногинский р-н
+MIKHAIL FILIPPOV	+70127405954	v.yudina_071959@postgrespro.ru	Одинцово
+NATALYA POPOVA	+70357730730	kuzmin-s-29061965@postgrespro.ru	Озерск
+LIDIYA MAKAROVA	+70391925183	popovalyubov-1965@postgrespro.ru	Октябрьский, Башкортостан респ.
+ARTEM VOLKOV	+70056803378	kuznecov.aleksandr.24031974@postgrespro.ru	Омск
+ALEKSANDR MOROZOV	+70931496622	rashitkonovalov.041963@postgrespro.ru	Орел
+ANDREY ZAYCEV	+70537072207	matveev_leonid_031967@postgrespro.ru	Оренбург
+SERGEY CHERNOV	+70615626510	vorobevanatalya1974@postgrespro.ru	Орехово-Зуево
+RUSLAN SCHERBAKOV	+70048361600	makarovaleksandr_1980@postgrespro.ru	Орск
+MARINA GORBUNOVA	+70459673861	a_dmitriev1966@postgrespro.ru	Островцы
+ALEKSANDR SMIRNOV	+70420305995	z_komarova_02071973@postgrespro.ru	Павлово
+NIKOLAY FILIPPOV	+70512441812	ayakovleva-1965@postgrespro.ru	Павловский Посад
+VERA ALEKSEEVA	+70400770234	m_pavlova-08051964@postgrespro.ru	Павшинская Пойма, Московская обл.
+DMITRIY VASILEV	+70674445871	kiselevasamira1971@postgrespro.ru	Пенза
+MIKHAIL YAKOVLEV	+70836796043	veronikachernova-28061969@postgrespro.ru	Первоуральск
+MARINA KONDRATEVA	+70698651379	andreeva_e-12021972@postgrespro.ru	Пермь
+ELIZAVETA KRASNOVA	+70837139718	rfedorov_12011969@postgrespro.ru	Петергоф (Петродворец)
+NATALYA SMIRNOVA	+70057570736	aaleksandrov1975@postgrespro.ru	Петрозаводск
+ANASTASIYA POTAPOVA	+70428202651	n_nikitina.1968@postgrespro.ru	Пограничный
+ELENA YAKOVLEVA	+70808337456	konovalovavera.061982@postgrespro.ru	Подольск
+YULIYA KRASNOVA	+70226463575	v-mikhaylov_1967@postgrespro.ru	Прокопьевск
+ALEKSEY SMIRNOV	+70480427913	t-morozova_21071968@postgrespro.ru	Псков
+ROMAN ORLOV	+70222241949	melnikov_yuriy15081977@postgrespro.ru	Пушкин
+TATYANA DANILOVA	+70681851642	smirnova-s.11101976@postgrespro.ru	Пушкино
+ALFIYA KOROLEVA	+70544342349	naumova_tamara.1983@postgrespro.ru	Пятигорск
+SVETLANA DANILOVA	+70215602590	saniya_gorbunova_08091976@postgrespro.ru	Раменское
+ELENA SERGEEVA	+70055118510	egorova.tatyana021984@postgrespro.ru	Реутов
+IVAN GERASIMOV	+70042154341	anatoliy-yakovlev1968@postgrespro.ru	Ржев
+ILYA NAUMOV	+70045803491	konovalova-r_26081979@postgrespro.ru	Россошь
+VALENTINA BELYAEVA	+70866049380	kazakov_valentin.29061971@postgrespro.ru	Ростов-на-Дону
+ALEKSANDR NIKOLAEV	+70353606609	ivanova-lyudmila.031969@postgrespro.ru	Рубцовск
+VERONIKA SCHERBAKOVA	+70622452835	maslova-olga1969@postgrespro.ru	Румянцево, поселение Московский
+VIKTOR MOROZOV	+70524143358	davydov-v.051972@postgrespro.ru	Рыбинск
+GERMAN PETROV	+70322399861	mikhaylovv_1971@postgrespro.ru	Рязань
+SVETLANA ZAYCEVA	+70653790854	anton.popov101986@postgrespro.ru	Саки
+ALEKSEY MATVEEV	+70859133174	abramov_vladimir.1977@postgrespro.ru	Салават
+ANTON SMIRNOV	+70492714162	snikolaeva.17121969@postgrespro.ru	Сальск
+DENIS POPOV	+70729665610	nnikiforova_1989@postgrespro.ru	Самара
+LYUDMILA ALEKSEEVA	+70335565904	v.nikolaev1970@postgrespro.ru	Санкт-Петербург
+ZOYA ILINA	+70143471015	p.kudryashov-1978@postgrespro.ru	Саранск
+LYUDMILA GAVRILOVA	+70277930465	a-belov-091968@postgrespro.ru	Сарапул
+DAMIR ANTONOV	+70055821331	evgeniya.tarasova.1975@postgrespro.ru	Саратов
+LIDIYA BORISOVA	+70251452065	m_makarov031979@postgrespro.ru	Саров
+MARIYA PETROVA	+70468928595	scherbakovao031964@postgrespro.ru	Севастополь
+ANATOLIY KAZAKOV	+70388634879	novikov.andrey_1975@postgrespro.ru	Северный (Москва)
+ELENA SOROKINA	+70560597145	n_nikolaeva28011970@postgrespro.ru	Северск
+KONSTANTIN KUZMIN	+70651103379	mikhaylova-l.1975@postgrespro.ru	Сергиев Посад
+EKATERINA VLASOVA	+70482539868	vladimir-popov1971@postgrespro.ru	Серов
+TATYANA ALEKSEEVA	+70830438590	frolov_i_101966@postgrespro.ru	Серпухов
+ANNA SEMENOVA	+70974884765	l_baranova02041976@postgrespro.ru	Сертолово, Всеволожский р-н, Ленинградская обл.
+ALEKSEY SHEVCHENKO	+70248467169	e.stepanov_1966@postgrespro.ru	Сестрорецк
+SERGEY ISAEV	+70764871283	n.malysheva21101974@postgrespro.ru	Симферополь
+VADIM BARANOV	+70287136409	pavel_medvedev_051962@postgrespro.ru	Славянск-на-Кубани
+ALEKSANDR KUZMIN	+70605746946	olegnovikov09081960@postgrespro.ru	Смоленск
+VLADIMIR SERGEEV	+70088954397	smelnikov-021971@postgrespro.ru	Снежинск
+VASILIY DAVYDOV	+70501691945	valentinanikolaeva.071971@postgrespro.ru	Солнцево
+ARKADIY MOROZOV	+70724623727	aisaev_06101977@postgrespro.ru	Сосновый Бор
+KRISTINA DMITRIEVA	+70281243742	kozlovv-031978@postgrespro.ru	Сочи
+TAMARA ZAKHAROVA	+70324710550	sergeeva-a.1969@postgrespro.ru	Ставрополь
+VALENTINA EGOROVA	+70842796024	o_fedorova.15021969@postgrespro.ru	Старый Оскол
+STANISLAV MAKSIMOV	+70476008750	sergeev_aleksey051971@postgrespro.ru	Стерлитамак
+ALEKSANDR FILIPPOV	+70903649115	smirnov_v_1971@postgrespro.ru	Ступино
+ELENA MARTYNOVA	+70780219441	yaroslavtimofeev1970@postgrespro.ru	Судак
+EKATERINA DMITRIEVA	+70210404949	ivanov-aleksandr_25071970@postgrespro.ru	Сходня, Московская обл.
+NATALYA GAVRILOVA	+70298591508	petrov_igor.1973@postgrespro.ru	Сызрань
+ROMAN SOROKIN	+70831473721	kuznecov.aleksey.1976@postgrespro.ru	Сыктывкар
+VLADIMIR MAKAROV	+70419735392	medvedevanatalya1970@postgrespro.ru	Таганрог
+VLADISLAV MOISEEV	+70223533452	efremova_alena_121967@postgrespro.ru	Тамбов
+LYUBOV GERASIMOVA	+70663956057	vladimir_ivanov09071975@postgrespro.ru	Тарасково, Наро-Фоминский р-н
+ARTEM ABRAMOV	+70391925183	s_ivanov1972@postgrespro.ru	Тверь
+DMITRIY TIKHONOV	+70735294818	martynova_anastasiya.13101979@postgrespro.ru	Темрюк
+ALEKSANDRA MARTYNOVA	+70056803378	elizaveta-andreeva.04061980@postgrespro.ru	Тихвин
+ANASTASIYA IVANOVA	+70564054822	mikhaylovpavel.06101975@postgrespro.ru	Тихорецк
+SERGEY NIKITIN	+70006353349	antonova.a-09021975@postgrespro.ru	Тобольск
+SERGEY OSIPOV	+70508486036	dmitriydenisov.1964@postgrespro.ru	Тольятти
+ANNA FROLOVA	+70003268424	nikitaromanov-031971@postgrespro.ru	Томилино
+SVETLANA POLYAKOVA	+70615626510	gennadiyivanov1969@postgrespro.ru	Томск
+KONSTANTIN KISELEV	+70650733196	i-abramova.02011969@postgrespro.ru	Торжок
+NINA NESTEROVA	+70773560143	nmaksimov1984@postgrespro.ru	Троицк, Москов. обл.
+OKSANA PAVLOVA	+70512441812	kazakova-n_29101972@postgrespro.ru	Троицк, Чел. обл
+INNA PAVLOVA	+70400770234	zotova-n_011984@postgrespro.ru	Туапсе
+NIKOLAY AFANASEV	+70055821331	e_arkhipova.081974@postgrespro.ru	Тула
+TATYANA OSIPOVA	+70251452065	aleksey-egorov.091966@postgrespro.ru	Тюмень
+IRINA RODIONOVA	+70018469134	n_sorokin-1968@postgrespro.ru	Ульяновск
+ANNA POLYAKOVA	+70388634879	kuznecova_raisa.111973@postgrespro.ru	Усть-Лабинск
+SVETLANA PETROVA	+70560597145	n_stepanov10081967@postgrespro.ru	Уфа
+NADEZHDA DMITRIEVA	+70482539868	klavdiya.egorova_071977@postgrespro.ru	Учалы
+VLADIMIR FILIPPOV	+70830438590	efimova-larisa.021969@postgrespro.ru	Феодосия
+VYACHESLAV SERGEEV	+70113116356	ivanova-l-07011978@postgrespro.ru	Фролово
+ALEKSEY ORLOV	+70547864322	nikolaykozlov_041973@postgrespro.ru	Фрязино
+TIGRAN GRIGOREV	+70776886177	vladislav-solovev_1976@postgrespro.ru	Химки
+GALINA KONOVALOVA	+70116667922	olga-konovalova-1970@postgrespro.ru	Химки Старые
+ELMIRA ZAKHAROVA	+70287136409	gerasimova-m1978@postgrespro.ru	Чайковский
+ALEKSANDR AFANASEV	+70605746946	trofimova-irina.26031970@postgrespro.ru	Чебоксары
+ANASTASIYA DANILOVA	+70088954397	matveeva_ekaterina-011975@postgrespro.ru	Челябинск
+ANASTASIYA PAVLOVA	+70163594701	nadezhda_koroleva_1975@postgrespro.ru	Череповец
+ANDREY MOISEEV	+70281243742	nvasileva-06121965@postgrespro.ru	Черкесск
+ELENA KULIKOVA	+70121704630	sergeevasvetlana.1974@postgrespro.ru	Чехов
+MIKHAIL KRASNOV	+70324710550	fedorova_lyubov-031975@postgrespro.ru	Чусовой
+ALEKSANDR MARTYNOV	+70842796024	dmitriev-nikolay.15121956@postgrespro.ru	Шадринск
+VADIM ANDREEV	+70476008750	maksimovdmitriy_1961@postgrespro.ru	Шатура
+ANATOLIY KUZNECOV	+70903649115	ivanova.s.101977@postgrespro.ru	Шахты
+YULIYA SOROKINA	+70298591508	sokolovn.021979@postgrespro.ru	Шушары
+TATYANA KOROLEVA	+70419735392	nnazarova-13041978@postgrespro.ru	Щербинка
+LYUBOV DANILOVA	+70223533452	s_morozov24111973@postgrespro.ru	Электросталь
+YANA DANILOVA	+70617251637	eantonova.1972@postgrespro.ru	Элиста
+OLEG MAKAROV	+70544011733	ivanovag.071976@postgrespro.ru	Энгельс, Саратовская обл.
+ILYA KOROLEV	+70127405954	andrey.antonov_07121977@postgrespro.ru	Южноуральск
+ALLA ILINA	+70357730730	dana-arkhipova-031973@postgrespro.ru	Юрга
+SERGEY MAKAROV	+70391925183	v_popov-071971@postgrespro.ru	Юрюзань
+LYUDMILA FILATOVA	+70735294818	zayceva-o111969@postgrespro.ru	Ялта
+NIKOLAY ZHURAVLEV	+70703842761	melnikov.yuriy.1970@postgrespro.ru	Ярославль
+NATALYA KISELEVA	+70564054822	maksimova_t101978@postgrespro.ru	Ярцево
+IRINA MOROZOVA	+70006353349	vorobeva_s-1965@postgrespro.ru	Азов
+VALENTINA KUZNECOVA	+70508486036	efremovanatalya_1967@postgrespro.ru	Аксай
+NADEZHDA VASILEVA	+70003268424	sergeev-eduard_1968@postgrespro.ru	Александров
+VALERIY MAKAROV	+70537072207	mikhaylova-n26021977@postgrespro.ru	Алексин, Тульская обл.
+GALINA ISAEVA	+70650733196	baranov_yuriy_07091966@postgrespro.ru	Алушта
+SERGEY MATVEEV	+70048361600	popov-pavel.1966@postgrespro.ru	Альметьевск
+RAISA BARANOVA	+70043666122	zaycevam.061970@postgrespro.ru	Анапа
+RASHID OSIPOV	+70420305995	kondratevav-1960@postgrespro.ru	Апатиты
+EVGENIY ALEKSANDROV	+70773560143	sidorov.mikhail_18081978@postgrespro.ru	Арзамас
+EKATERINA AFANASEVA	+70512441812	borisova_e-011972@postgrespro.ru	Армавир
+ALEKSANDR PAVLOV	+70400770234	solovevirek031965@postgrespro.ru	Асбест
+SVETLANA ALEKSEEVA	+70632176546	petrov_vladimir1980@postgrespro.ru	Астрахань
+GALINA KUZNECOVA	+70272757372	denisovasvetlana1961@postgrespro.ru	Ачинск
+VIKTOR ISAEV	+70544011733	fedorova_irina-05091970@postgrespro.ru	Балабаново
+DENIS ABRAMOV	+70056803378	osipov_d.091966@postgrespro.ru	Балаково
+OKSANA KOROLEVA	+70006353349	a.zhukov-121981@postgrespro.ru	Балахна
+ALEKSEY BELOV	+70931496622	smirnov.vladimir1981@postgrespro.ru	Балашиха
+GALINA IVANOVA	+70508486036	foming.15031978@postgrespro.ru	Барнаул
+ALFIYA VOLKOVA	+70003268424	n.abramova_051979@postgrespro.ru	Батайск
+GALINA KARPOVA	+70437173802	oleg-romanov-041985@postgrespro.ru	Бахчисарай
+NINA FADEEVA	+70650733196	zoya-trofimova-061963@postgrespro.ru	Белгород
+NATALYA NOVIKOVA	+70459673861	elenamaslova111960@postgrespro.ru	Белебей
+LARISA EGOROVA	+70043666122	vorobevasvetlana_19031975@postgrespro.ru	Белово
+ANNA SEMENOVA	+70773560143	margarita-gerasimova1973@postgrespro.ru	Белореченск
+VIKTOR MAKSIMOV	+70400770234	yakovlev_v-031967@postgrespro.ru	Березники
+RASHID MEDVEDEV	+70072145795	s.egorov.16101975@postgrespro.ru	Бийск
+VIKTOR SMIRNOV	+70003268424	e.alekseeva20051972@postgrespro.ru	Бор
+TATYANA KOZLOVA	+70537072207	kseniya_gerasimova.1956@postgrespro.ru	Борисоглебск
+ELENA ARKHIPOVA	+70615626510	l_potapova-1963@postgrespro.ru	Боровичи
+OLGA KUZNECOVA	+70459673861	dmitriev.aleksandr.25021973@postgrespro.ru	Брянск
+NIKITA KOROLEV	+70043666122	klavdiya_egorova1977@postgrespro.ru	Бугульма
+LIDIYA NESTEROVA	+70400770234	matveev_v.1974@postgrespro.ru	Буденновск
+VALENTINA EGOROVA	+70650733196	bondarenko_nikita-121974@postgrespro.ru	Бутово
+DIANA ZAKHAROVA	+70658379972	ivanovaleksandr_1985@postgrespro.ru	Великие Луки
+ALEKSEY DMITRIEV	+70459673861	s-zhuravlev.111965@postgrespro.ru	Великий Новгород
+ALEKSANDR ORLOV	+70043666122	gerasimov-nikolay-1982@postgrespro.ru	Верхняя Пышма
+GALINA KUZNECOVA	+70420305995	frolovvladimir-051975@postgrespro.ru	Видное
+DMITRIY DMITRIEV	+70420305995	timofeeva-g-1960@postgrespro.ru	Владикавказ
+VIKTOR MOROZOV	+70773560143	kuzmin_v-021978@postgrespro.ru	Владимир
+YULIYA KUZNECOVA	+70512441812	martynov.d.1970@postgrespro.ru	Внуково
+SERGEY NIKOLAEV	+70400770234	a.baranov.1972@postgrespro.ru	Волгоград
+ARTEM KUZNECOV	+70222241949	konovalov.p-04081970@postgrespro.ru	Волгодонск
+ALEKSANDR YAKOVLEV	+70681851642	andrey.novikov_071972@postgrespro.ru	Волжск, Волжский р-н
+ELENA NIKITINA	+70544342349	sorokina.tatyana.021982@postgrespro.ru	Волжский
+VASILIY BONDARENKO	+70215602590	aleksandr_naumov_1972@postgrespro.ru	Вологда
+OLGA KUZNECOVA	+70055118510	kseniya_kuznecova041966@postgrespro.ru	Волоколамск
+LYUDMILA SERGEEVA	+70042154341	rasim_afanasev07041978@postgrespro.ru	Волхов
+VLADIMIR MELNIKOV	+70045803491	sokolov-igor_1967@postgrespro.ru	Воронеж
+ALEKSANDR YAKOVLEV	+70866049380	aleksey_shevchenko.09101971@postgrespro.ru	Воскресенск
+OKSANA TROFIMOVA	+70353606609	a-filippov.17051966@postgrespro.ru	Всеволожск, Ленинградская обл.
+RIMMA NOVIKOVA	+70622452835	natalya.dmitrieva-1969@postgrespro.ru	Выборг
+SERGEY FEDOROV	+70524143358	vadim.pavlov_03031961@postgrespro.ru	Вязники
+IRINA MAKSIMOVA	+70322399861	nikiforova-polina.1967@postgrespro.ru	Вязьма
+ANNA KUDRYASHOVA	+70653790854	svetlanapavlova_041984@postgrespro.ru	Вятские Поляны
+IRINA IVANOVA	+70859133174	yakovlevan_121968@postgrespro.ru	Гатчина
+NIKOLAY KISELEV	+70492714162	borisovaleksandr_24011972@postgrespro.ru	Геленджик
+OLGA PAVLOVA	+70729665610	m_konovalov101977@postgrespro.ru	Георгиевск
+ANDREY ZAKHAROV	+70335565904	borisova-lyudmila_12031984@postgrespro.ru	Глазов
+SERGEY ANDREEV	+70143471015	vladimir.denisov.22081978@postgrespro.ru	Горно-Алтайск
+STEPAN BONDARENKO	+70277930465	natalya_matveeva.1964@postgrespro.ru	Гороховец
+VIKTOR FROLOV	+70055821331	bogdanova-natalya.20081976@postgrespro.ru	Губкин
+TATYANA MOISEEVA	+70251452065	nikolaev.gennadiy-15091968@postgrespro.ru	Джанкой
+ELENA ROMANOVA	+70468928595	fomina.nadezhda-061970@postgrespro.ru	Дзержинск, Нижегородская обл.
+DENIS MIRONOV	+70388634879	zakharova.a-23101955@postgrespro.ru	Дзержинский, Московская обл.
+OLGA POPOVA	+70560597145	fedorov.semen_071961@postgrespro.ru	Димитровград
+ELENA PAVLOVA	+70651103379	n_mironova041979@postgrespro.ru	Дмитров
+VASILIY SEMENOV	+70482539868	denisov_yuriy_121964@postgrespro.ru	Долгопрудный
+NIKOLAY STEPANOV	+70830438590	tikhonov-aleksandr_071979@postgrespro.ru	Домодедово
+VASILIY SEMENOV	+70974884765	sorokin-leonid.1978@postgrespro.ru	Дубна
+VASILIY VOLKOV	+70248467169	ofadeeva_22051976@postgrespro.ru	Евпатория
+NIKOLAY BORISOV	+70764871283	sfilippov1973@postgrespro.ru	Егорьевск
+IRINA NOVIKOVA	+70287136409	sidorov-yuriy-17021978@postgrespro.ru	Ейск
+ALEKSANDR MAKSIMOV	+70605746946	petrovavaleriya-011958@postgrespro.ru	Екатеринбург
+LYUBOV OSIPOVA	+70088954397	martynov.nikita31081968@postgrespro.ru	Елец
+ALESYA NIKITINA	+70501691945	svetlana_belova.16061977@postgrespro.ru	Ессентуки
+LYUBOV VASILEVA	+70724623727	mikhaylovyuriy_1976@postgrespro.ru	Железнодорожный, округ Балашиха
+NIKOLAY ROMANOV	+70281243742	belova-valentina_041979@postgrespro.ru	Заречный, Свердловская обл.
+MARINA OVCHINNIKOVA	+70324710550	a-tarasov_1975@postgrespro.ru	Заринск
+NIKOLAY ILIN	+70842796024	denisovigor.1976@postgrespro.ru	Звенигород
+VIKTORIYA KUZMINA	+70476008750	k_arkhipova-051975@postgrespro.ru	Зеленогорск
+TATYANA NIKOLAEVA	+70903649115	semenov-sergey121985@postgrespro.ru	Зеленоград
+ANDREY SOKOLOV	+70780219441	bogdanovayuliya_101964@postgrespro.ru	Зеленодольск
+VLADIMIR CHERNOV	+70210404949	frolovmikhail-1962@postgrespro.ru	Зеленокумск
+IRINA CHERNOVA	+70298591508	krasnov_nikolay_23061978@postgrespro.ru	Зерноград
+EVGENIYA DAVYDOVA	+70831473721	scherbakova_v.1981@postgrespro.ru	Златоуст
+ARINA KOZLOVA	+70419735392	alekseevanatalya-15041968@postgrespro.ru	Иваново
+ANTON STEPANOV	+70223533452	kuzminanina-31011965@postgrespro.ru	Ижевск
+OLEG KISELEV	+70663956057	ivanpopov.1985@postgrespro.ru	Изобильный
+ANATOLIY MOISEEV	+70391925183	belyaeva-n_09111974@postgrespro.ru	Ирбит
+YULIYA ZHUKOVA	+70735294818	nazarovan_16081980@postgrespro.ru	Искитим
+ANATOLIY TARASOV	+70056803378	anisimova-olga.111983@postgrespro.ru	Истра
+ANASTASIYA ZOTOVA	+70564054822	ivanov_vladimir_1977@postgrespro.ru	Ишим
+TATYANA NESTEROVA	+70006353349	fadeeva.veronika_27111964@postgrespro.ru	Йошкар-Ола
+VALENTINA ZAKHAROVA	+70508486036	evgeniya_kuzmina1972@postgrespro.ru	Казань
+ALLA LAZAREVA	+70003268424	sokolov.dmitriy.13121970@postgrespro.ru	Калуга
+VERONIKA RODIONOVA	+70615626510	e.tikhonova-03121975@postgrespro.ru	Каменск-Уральский
+DANIL SEMENOV	+70650733196	natalya.stepanova-031966@postgrespro.ru	Каменск-Шахтинский
+YURIY FOMIN	+70773560143	akimova-ekaterina.1971@postgrespro.ru	Камышин
+EVGENIY MAKSIMOV	+70512441812	s.davydov.081960@postgrespro.ru	Канск
+NAILYA IVANOVA	+70400770234	valeriyaivanova.02121974@postgrespro.ru	Кемерово
+DMITRIY KUZMIN	+70055821331	tatyana_fadeeva30011969@postgrespro.ru	Керчь
+ALEKSANDRA SERGEEVA	+70251452065	gavrilovvyacheslav1963@postgrespro.ru	Кимры
+VALENTINA FILIPPOVA	+70018469134	yakovlevvadim_071967@postgrespro.ru	Кингисепп
+ANTON VASILEV	+70388634879	natalya-smirnova-041969@postgrespro.ru	Кинешма
+DMITRIY GERASIMOV	+70560597145	a-sokolov-1981@postgrespro.ru	Киреевск, Тульская обл.
+ALEKSANDR KUZNECOV	+70482539868	grishina-y22091978@postgrespro.ru	Кириши
+ANDREY ANTONOV	+70830438590	belova-svetlana_23091976@postgrespro.ru	Киров
+OLEG POPOV	+70113116356	tamara-volkova1976@postgrespro.ru	Кировск, Ленинградская обл.
+FANIS VASILEV	+70547864322	ilyamorozov.12011977@postgrespro.ru	Киселёвск
+MARINA KOZLOVA	+70776886177	pavlov_v1966@postgrespro.ru	Кисловодск
+OLGA SOKOLOVA	+70116667922	olga_efremova061974@postgrespro.ru	Клин
+NIKOLAY VLASOV	+70287136409	romanov.a1975@postgrespro.ru	Клинцы
+\.
