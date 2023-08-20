@@ -18,7 +18,7 @@
 [4. Создание триггерных функций для поддержания витрин в актуальном состоянии](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Add%20functions.txt)   
 [5. Скрины триггерных функций для поддержания витрин в актуальном состоянии](https://github.com/mkalinichenko2023/otus_project/tree/main/Screens/Create%20DopFunc.md)   
 [6. Заполнила основные таблицы схемы данными (сделала обычную вставку, загрузку готовых списков и генерацию случайных данных с учетом назначения таблиц)](https://github.com/mkalinichenko2023/otus_project/tree/main/Scripts/Load%20data.txt)   
-[7. Скрины триггерных функций для поддержания витрин в актуальном состоянии](https://github.com/mkalinichenko2023/otus_project/tree/main/Screens/Create%20LoadData.md)   
+[7. Скрины заполнения основные таблицы схемы данными](https://github.com/mkalinichenko2023/otus_project/tree/main/Screens/Create%20LoadData.md)   
 ***Итог: Выполненная работа позволила закрепить полученную на курсе информацию по созданию различных объектов БД в PostgreSQL, а также подсветила отличия в работе с PostgreSQL и с СУБД Oracle.***
 ------------------------   
 ### Вторая часть проекта заключалась в изучении программы pgbench. ###   
