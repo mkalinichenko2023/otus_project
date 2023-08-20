@@ -1,4 +1,4 @@
---создать базу, схему и таблицы
+--СЃРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ, СЃС…РµРјСѓ Рё С‚Р°Р±Р»РёС†С‹
 
 create database mybookshop;
 
@@ -8,7 +8,7 @@ create schema bookshop;
 
 set search_path = bookshop, pg_catalog;
 
---Книги
+--РљРЅРёРіРё
 create table books(bk_id          integer,
                    bk_name        varchar(500) not null,
                    bk_author      varchar(500),
@@ -16,14 +16,14 @@ create table books(bk_id          integer,
                    bk_publish     varchar(500),
                    bk_annotation  varchar(4000),
              constraint Books_pkey primary key(bk_id));
-comment on table books is 'Книги';
+comment on table books is 'РљРЅРёРіРё';
 
-comment on column books.bk_id is 'Идентификатор';
-comment on column books.bk_name is 'Название';
-comment on column books.bk_author is 'Автор';
-comment on column books.bk_year is 'Год издания';
-comment on column books.bk_publish is 'Издательство';
-comment on column books.bk_annotation is 'Аннтоция';
+comment on column books.bk_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column books.bk_name is 'РќР°Р·РІР°РЅРёРµ';
+comment on column books.bk_author is 'РђРІС‚РѕСЂ';
+comment on column books.bk_year is 'Р“РѕРґ РёР·РґР°РЅРёСЏ';
+comment on column books.bk_publish is 'РР·РґР°С‚РµР»СЊСЃС‚РІРѕ';
+comment on column books.bk_annotation is 'РђРЅРЅС‚РѕС†РёСЏ';
 create sequence books_bk_id_seq start with 1 increment by 1 
 minvalue 1 maxvalue 9999999 cache 1 owned by books.bk_id;
 
@@ -34,7 +34,7 @@ $BODY$
 declare
 begin
   if Old.bk_name <> New.bk_name OR Old.bk_author <> New.bk_author OR Old.bk_year <> New.bk_year OR Old.bk_publish <> New.bk_publish then
-    RAISE EXCEPTION 'Обновления для столбцов "bk_name","bk_author","bk_year" и "bk_publish" запрещены!';
+    RAISE EXCEPTION 'РћР±РЅРѕРІР»РµРЅРёСЏ РґР»СЏ СЃС‚РѕР»Р±С†РѕРІ "bk_name","bk_author","bk_year" Рё "bk_publish" Р·Р°РїСЂРµС‰РµРЅС‹!';
   end if;
 return New;
 end;
@@ -63,35 +63,35 @@ create or replace trigger trBefInsBooks
 before insert on books for each row
 execute function fBefInsertBooks();
 
---Склады
+--РЎРєР»Р°РґС‹
 create table Storages(st_id          integer,
                       st_name        varchar(500) not null,
                       st_address     varchar(1000),
                       st_phone       varchar(100),
              constraint Storages_pkey primary key(st_id));
-comment on table Storages is 'Склады';
+comment on table Storages is 'РЎРєР»Р°РґС‹';
 
-comment on column Storages.st_id is 'Идентификатор';
-comment on column Storages.st_name is 'Название';
-comment on column Storages.st_address is 'Адрес';
-comment on column Storages.st_phone is 'Контактный телефон';
+comment on column Storages.st_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column Storages.st_name is 'РќР°Р·РІР°РЅРёРµ';
+comment on column Storages.st_address is 'РђРґСЂРµСЃ';
+comment on column Storages.st_phone is 'РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ';
 create sequence Storages_st_id_seq start with 1 increment by 1 
 minvalue 1 maxvalue 9999 cache 1 owned by Storages.st_id;
 
---Покупатели
+--РџРѕРєСѓРїР°С‚РµР»Рё
 create table Customers(ct_id          integer,
                        ct_fio         varchar(1000) not null,
                        ct_phone       varchar(100),
                        ct_email       varchar(100),
                        ct_address     varchar(1000),
              constraint Customes_pkey primary key(ct_id));
-comment on table Customers is 'Покупатели';
+comment on table Customers is 'РџРѕРєСѓРїР°С‚РµР»Рё';
 
-comment on column Customers.ct_id is 'Идентификатор';
-comment on column Customers.ct_fio is 'ФИО';
-comment on column Customers.ct_phone is 'Контактный телефон';
-comment on column Customers.ct_email is 'Эл.почта';
-comment on column Customers.ct_address is 'Адрес';
+comment on column Customers.ct_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column Customers.ct_fio is 'Р¤РРћ';
+comment on column Customers.ct_phone is 'РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ';
+comment on column Customers.ct_email is 'Р­Р».РїРѕС‡С‚Р°';
+comment on column Customers.ct_address is 'РђРґСЂРµСЃ';
 create sequence Customers_ct_id_seq start with 1 increment by 1 
 minvalue 1 maxvalue 9999999 cache 1 owned by Customers.ct_id;
 
@@ -114,7 +114,7 @@ before insert on Customers for each row
 execute function fBefInsertCustomers();
 
 
---Номенклатура продаж
+--РќРѕРјРµРЅРєР»Р°С‚СѓСЂР° РїСЂРѕРґР°Р¶
 create table Products(pr_id          integer,
                       st_id          integer,
                       bk_id          integer,
@@ -124,14 +124,14 @@ create table Products(pr_id          integer,
              constraint Products_pkey primary key(pr_id),
              constraint Products_Storages_fkey foreign key (st_id) references Storages(st_id),
              constraint Products_Books_fkey foreign key (bk_id) references Books(bk_id));
-comment on table Products is 'Номенклатура продаж';
+comment on table Products is 'РќРѕРјРµРЅРєР»Р°С‚СѓСЂР° РїСЂРѕРґР°Р¶';
 
-comment on column Products.pr_id is 'Идентификатор';
-comment on column Products.st_id is 'Идентификатор склада';
-comment on column Products.bk_id is 'Идентификатор книги';
-comment on column Products.pr_count is 'Количество';
-comment on column Products.pr_price is 'Стоимость';
-comment on column Products.pr_deldays is 'Дни доставки';
+comment on column Products.pr_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column Products.st_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРєР»Р°РґР°';
+comment on column Products.bk_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєРЅРёРіРё';
+comment on column Products.pr_count is 'РљРѕР»РёС‡РµСЃС‚РІРѕ';
+comment on column Products.pr_price is 'РЎС‚РѕРёРјРѕСЃС‚СЊ';
+comment on column Products.pr_deldays is 'Р”РЅРё РґРѕСЃС‚Р°РІРєРё';
 create sequence Products_pr_id_seq start with 1 increment by 1 
 minvalue 1 maxvalue 9999999999 cache 1 owned by Products.pr_id;
 
@@ -142,7 +142,7 @@ $BODY$
 declare
 begin
   if Old.st_id <> New.st_id OR Old.bk_id <> New.bk_id then
-    RAISE EXCEPTION 'Обновления для столбцов "st_id" и "bk_id" запрещены!';
+    RAISE EXCEPTION 'РћР±РЅРѕРІР»РµРЅРёСЏ РґР»СЏ СЃС‚РѕР»Р±С†РѕРІ "st_id" Рё "bk_id" Р·Р°РїСЂРµС‰РµРЅС‹!';
   end if;
 return New;
 end;
@@ -153,7 +153,7 @@ create or replace trigger trOnUpdProducts
 before update on Products for each row
 execute function fOnUpdProducts();
 
---Заказы
+--Р—Р°РєР°Р·С‹
 create table Orders(or_id          integer,
                     ct_id          integer,
                     pr_id          integer,
@@ -166,16 +166,16 @@ create table Orders(or_id          integer,
              constraint Orders_Customers_fkey foreign key (ct_id) references Customers(ct_id),
              constraint Orders_Products_fkey foreign key (pr_id) references Products(pr_id),
              constraint Orders_or_status_check check (or_status in ('Create','In delivery','Cancelled','Done')));
-comment on table Orders is 'Заказы';
+comment on table Orders is 'Р—Р°РєР°Р·С‹';
 
-comment on column Orders.or_id is 'Идентификатор';
-comment on column Orders.ct_id is 'Идентификатор покупателя';
-comment on column Orders.pr_id is 'Идентификатор номенклатуры продаж';
-comment on column Orders.or_date is 'Дата и время заказа';
-comment on column Orders.or_count is 'Кол-во экземпляров';
-comment on column Orders.or_tprice is 'Итоговая стоимость';
-comment on column Orders.or_deldate is 'Дата доставки';
-comment on column Orders.or_status is 'Статус заказа';
+comment on column Orders.or_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column Orders.ct_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕРєСѓРїР°С‚РµР»СЏ';
+comment on column Orders.pr_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РЅРѕРјРµРЅРєР»Р°С‚СѓСЂС‹ РїСЂРѕРґР°Р¶';
+comment on column Orders.or_date is 'Р”Р°С‚Р° Рё РІСЂРµРјСЏ Р·Р°РєР°Р·Р°';
+comment on column Orders.or_count is 'РљРѕР»-РІРѕ СЌРєР·РµРјРїР»СЏСЂРѕРІ';
+comment on column Orders.or_tprice is 'РС‚РѕРіРѕРІР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ';
+comment on column Orders.or_deldate is 'Р”Р°С‚Р° РґРѕСЃС‚Р°РІРєРё';
+comment on column Orders.or_status is 'РЎС‚Р°С‚СѓСЃ Р·Р°РєР°Р·Р°';
 create sequence Orders_or_id_seq start with 1 increment by 1 
 minvalue 1 maxvalue 9999999999 cache 1 owned by Orders.or_id;
 
@@ -186,7 +186,7 @@ $BODY$
 declare
 begin
   if Old.ct_id <> New.ct_id or Old.pr_id <> New.pr_id then
-    RAISE EXCEPTION 'Обновления для столбцов "ct_id" и "pr_id" запрещены!';
+    RAISE EXCEPTION 'РћР±РЅРѕРІР»РµРЅРёСЏ РґР»СЏ СЃС‚РѕР»Р±С†РѕРІ "ct_id" Рё "pr_id" Р·Р°РїСЂРµС‰РµРЅС‹!';
   end if;
 return New;
 end;
@@ -197,23 +197,23 @@ create or replace trigger trOnUpdOrders
 before update on Orders for each row
 execute function fOnUpdOrders();
 
---Витрина наличия книг
+--Р’РёС‚СЂРёРЅР° РЅР°Р»РёС‡РёСЏ РєРЅРёРі
 create table ProductsRange(bk_id          integer,
                            rg_name        varchar(500) not null,
                            rg_author      varchar(500),
                            rg_tcount      integer not null check (rg_tcount>0),
                            rg_min_price   numeric(9,2) not null check (rg_min_price>=0),
                            rg_str_count   integer);
-comment on table ProductsRange is 'Витрина наличия книг';
+comment on table ProductsRange is 'Р’РёС‚СЂРёРЅР° РЅР°Р»РёС‡РёСЏ РєРЅРёРі';
 
-comment on column ProductsRange.bk_id is 'Идентификатор книги';
-comment on column ProductsRange.rg_name is 'Название книги';
-comment on column ProductsRange.rg_author is 'Автор книги';
-comment on column ProductsRange.rg_tcount is 'Всего книг в наличии';
-comment on column ProductsRange.rg_min_price is 'Минимальная стоимость книги';
-comment on column ProductsRange.rg_str_count is 'Кол-во складов';
+comment on column ProductsRange.bk_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєРЅРёРіРё';
+comment on column ProductsRange.rg_name is 'РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё';
+comment on column ProductsRange.rg_author is 'РђРІС‚РѕСЂ РєРЅРёРіРё';
+comment on column ProductsRange.rg_tcount is 'Р’СЃРµРіРѕ РєРЅРёРі РІ РЅР°Р»РёС‡РёРё';
+comment on column ProductsRange.rg_min_price is 'РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ РєРЅРёРіРё';
+comment on column ProductsRange.rg_str_count is 'РљРѕР»-РІРѕ СЃРєР»Р°РґРѕРІ';
 
---Отчет по продажам
+--РћС‚С‡РµС‚ РїРѕ РїСЂРѕРґР°Р¶Р°Рј
 create table OrdersSummary(os_date           date not null,
                            os_total_ord_cnt  integer,
                            os_done_ord_cnt   integer,
@@ -221,13 +221,12 @@ create table OrdersSummary(os_date           date not null,
                            os_done_smm       numeric(9,2),
                            os_total_bk_cnt   integer,
                            os_done_bk_cnt    integer);
-comment on table OrdersSummary is 'Итоги продаж';
+comment on table OrdersSummary is 'РС‚РѕРіРё РїСЂРѕРґР°Р¶';
 
-comment on column OrdersSummary.os_date is 'Дата продажи';
-comment on column OrdersSummary.os_total_ord_cnt is 'Кол-во заказов общее';
-comment on column OrdersSummary.os_done_ord_cnt is 'Кол-во заказов выполненных';
-comment on column OrdersSummary.os_total_smm is 'Стоимость заказов общая';
-comment on column OrdersSummary.os_done_smm is 'Стоимость заказов выполненных';
-comment on column OrdersSummary.os_total_bk_cnt is 'Кол-во книг по всем заказам';
-comment on column OrdersSummary.os_done_bk_cnt is 'Кол-во книг по выполненным заказам';
-
+comment on column OrdersSummary.os_date is 'Р”Р°С‚Р° РїСЂРѕРґР°Р¶Рё';
+comment on column OrdersSummary.os_total_ord_cnt is 'РљРѕР»-РІРѕ Р·Р°РєР°Р·РѕРІ РѕР±С‰РµРµ';
+comment on column OrdersSummary.os_done_ord_cnt is 'РљРѕР»-РІРѕ Р·Р°РєР°Р·РѕРІ РІС‹РїРѕР»РЅРµРЅРЅС‹С…';
+comment on column OrdersSummary.os_total_smm is 'РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р°РєР°Р·РѕРІ РѕР±С‰Р°СЏ';
+comment on column OrdersSummary.os_done_smm is 'РЎС‚РѕРёРјРѕСЃС‚СЊ Р·Р°РєР°Р·РѕРІ РІС‹РїРѕР»РЅРµРЅРЅС‹С…';
+comment on column OrdersSummary.os_total_bk_cnt is 'РљРѕР»-РІРѕ РєРЅРёРі РїРѕ РІСЃРµРј Р·Р°РєР°Р·Р°Рј';
+comment on column OrdersSummary.os_done_bk_cnt is 'РљРѕР»-РІРѕ РєРЅРёРі РїРѕ РІС‹РїРѕР»РЅРµРЅРЅС‹Рј Р·Р°РєР°Р·Р°Рј';
