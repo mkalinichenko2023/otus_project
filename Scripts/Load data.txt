@@ -1,9 +1,9 @@
 --заполнение данными
 --Склады - небольшая таблица, сделала ручную вставку значений по смыслу
-insert into Storages(st_id,st_name,st_address,st_phone) values(nextval('Books_bk_id_seq'),'Склад Центральный','143960, Московская обл, г. Реутов, пр-т Мира, д. 69к3',' 7(963)-88-22');
-insert into Storages(st_id,st_name,st_address,st_phone) values(nextval('Books_bk_id_seq'),'Склад Южный','350059, г. Краснодар, обход Восточный, д. 19',' 7(964)-77-33');
-insert into Storages(st_id,st_name,st_address,st_phone) values(nextval('Books_bk_id_seq'),'Склад Дальний','630121, г. Новосибирск, ул. Станционная, д. 78к1',' 7(965)-55-11');
-insert into Storages(st_id,st_name,st_address,st_phone) values(nextval('Books_bk_id_seq'),'Склад Казань','420000, респ. Татарстан, г. Казань, ш. Горьковское, д. 28',' 7(963)-88-22');
+insert into Storages(st_id,st_name,st_address,st_phone) values(nextval('Books_bk_id_seq'),'Склад Центральный','143960, Московская обл, г. Реутов, пр-т Мира, д. 69к3','+7(963)-88-22');
+insert into Storages(st_id,st_name,st_address,st_phone) values(nextval('Books_bk_id_seq'),'Склад Южный','350059, г. Краснодар, обход Восточный, д. 19','+7(964)-77-33');
+insert into Storages(st_id,st_name,st_address,st_phone) values(nextval('Books_bk_id_seq'),'Склад Дальний','630121, г. Новосибирск, ул. Станционная, д. 78к1','+7(965)-55-11');
+insert into Storages(st_id,st_name,st_address,st_phone) values(nextval('Books_bk_id_seq'),'Склад Казань','420000, респ. Татарстан, г. Казань, ш. Горьковское, д. 28','+7(963)-88-22');
 
 --Книги  -  большая таблица, скачала из интернет готовый список книг и сделала загрузку в таблицу
 cd /var/tmp/
@@ -25,7 +25,7 @@ declare
 begin
     for Rec in (select st_id from Storages)loop
       insert into Products(pr_id,st_id,bk_id,pr_count,pr_price,pr_deldays)
-        select nextval('products_pr_id_seq'),Rec.st_id,b.bk_id,floor(random()*20) 1,floor(random()*1000) 99,floor(random()*10) 1
+        select nextval('products_pr_id_seq'),Rec.st_id,b.bk_id,floor(random()*20)+1,floor(random()*1000)+99,floor(random()*10)+1
         from Books b where mod(b.bk_id,Rec.st_id)=0 limit 100;
     end loop;
 end$$;
@@ -47,23 +47,23 @@ begin
     select max(pr_id) into MaxProd from Products;
 
     for i in 1..1000 loop
-      CorDt:= floor(random()*90) 1;
-      DelDt:= CorDt  floor(random()*15) 1;
+      CorDt:= floor(random()*90)+1;
+      DelDt:= CorDt + floor(random()*15)+1;
       --'Create'
       insert into Orders(or_id,ct_id,pr_id,or_date,or_count,or_tprice,or_deldate,or_status)
-        select nextval('orders_or_id_seq'),xc.ct_id,xp.pr_id,BegDt CorDt,xp.Cnt,xp.pr_price*Cnt,BegDt DelDt,'Create'
-        from (select p.pr_id,p.pr_price,floor(random()*5) 1 Cnt from Products p where p.pr_id=floor(random()*MaxProd) 1) xp,
-             (select ct_id from Customers where ct_id=floor(random()*MaxCust) 1) xc;
+        select nextval('orders_or_id_seq'),xc.ct_id,xp.pr_id,BegDt+CorDt,xp.Cnt,xp.pr_price*Cnt,BegDt+DelDt,'Create'
+        from (select p.pr_id,p.pr_price,floor(random()*5)+1 Cnt from Products p where p.pr_id=floor(random()*MaxProd)+1) xp,
+             (select ct_id from Customers where ct_id=floor(random()*MaxCust)+1) xc;
       --'In delivery'
       insert into Orders(or_id,ct_id,pr_id,or_date,or_count,or_tprice,or_deldate,or_status)
-        select nextval('orders_or_id_seq'),xc.ct_id,xp.pr_id,BegDt CorDt,xp.Cnt,xp.pr_price*Cnt,BegDt DelDt,'In delivery'
-        from (select p.pr_id,p.pr_price,floor(random()*5) 1 Cnt from Products p where p.pr_id=floor(random()*MaxProd) 1) xp,
-             (select ct_id from Customers where ct_id=floor(random()*MaxCust) 1) xc;
+        select nextval('orders_or_id_seq'),xc.ct_id,xp.pr_id,BegDt+CorDt,xp.Cnt,xp.pr_price*Cnt,BegDt+DelDt,'In delivery'
+        from (select p.pr_id,p.pr_price,floor(random()*5)+1 Cnt from Products p where p.pr_id=floor(random()*MaxProd)+1) xp,
+             (select ct_id from Customers where ct_id=floor(random()*MaxCust)+1) xc;
       --'Done'
       insert into Orders(or_id,ct_id,pr_id,or_date,or_count,or_tprice,or_deldate,or_status)
-        select nextval('orders_or_id_seq'),xc.ct_id,xp.pr_id,BegDt CorDt,xp.Cnt,xp.pr_price*Cnt,BegDt DelDt,'Done'
-        from (select p.pr_id,p.pr_price,floor(random()*5) 1 Cnt from Products p where p.pr_id=floor(random()*MaxProd) 1) xp,
-             (select ct_id from Customers where ct_id=floor(random()*MaxCust) 1) xc;
+        select nextval('orders_or_id_seq'),xc.ct_id,xp.pr_id,BegDt+CorDt,xp.Cnt,xp.pr_price*Cnt,BegDt+DelDt,'Done'
+        from (select p.pr_id,p.pr_price,floor(random()*5)+1 Cnt from Products p where p.pr_id=floor(random()*MaxProd)+1) xp,
+             (select ct_id from Customers where ct_id=floor(random()*MaxCust)+1) xc;
     end loop;
 end$$;
 
