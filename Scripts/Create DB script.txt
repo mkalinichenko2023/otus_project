@@ -183,23 +183,38 @@ as
 $BODY$
 declare
 begin
-  if Old.ct_id <> New.ct_id or Old.pr_id <> New.pr_id then
-    RAISE EXCEPTION 'Обновления для столбцов "ct_id" и "pr_id" запрещены!';
+  if Old.ct_id <> New.ct_id or Old.pr_id <> New.pr_id or Old.or_count <> New.or_count then
+    RAISE EXCEPTION 'Обновления для столбцов "ct_id", "pr_id" и "or_count" запрещены!';
   end if;
 return New;
 end;
 $BODY$
 language plpgsql;
 
+create or replace function fOnRemOrders()
+returns trigger
+as
+$BODY$
+declare
+begin
+  RAISE EXCEPTION 'Удаление заказа запрещено! Переведите в состояние "Cancelled".';
+return New;
+end;
+$BODY$
+language plpgsql;
+
 create or replace trigger trOnUpdOrders
-before update on Orders for each row
-execute function fOnUpdOrders();
+before update on Orders for each row execute function fOnUpdOrders();
+
+create or replace trigger trOnRemOrders
+before delete on Orders for each row execute function fOnRemOrders();
+
 
 --Витрина наличия книг
 create table ProductsRange(bk_id          integer,
                            rg_name        varchar(500) not null,
                            rg_author      varchar(500),
-                           rg_tcount      integer not null check (rg_tcount>0),
+                           rg_tcount      integer not null check (rg_tcount>=0),
                            rg_min_price   numeric(9,2) not null check (rg_min_price>=0),
                            rg_str_count   integer);
 comment on table ProductsRange is 'Витрина наличия книг';
