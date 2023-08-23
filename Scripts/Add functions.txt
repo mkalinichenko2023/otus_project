@@ -74,14 +74,18 @@ create trigger trOnUpdateProducts
 after update on Products for each row
 execute function fOnModifProducts();
 
--Триггеры на "отчет по продажам" OrdersSummary  
+--Триггеры на "отчет по продажам" OrdersSummary
 create or replace function fOnAddOrders()
 returns trigger
 as
 $BODY$
 declare
-  row_cnt      integer;
+  row_cnt   integer;
 begin
+  if New.or_status<>'Cancelled' then
+    update bookshop.Products set pr_count= greatest(pr_count-New.or_count,0) where pr_id=New.pr_id;
+  end if;
+
   select count(*) into row_cnt from bookshop.OrdersSummary os where os.os_date= New.or_date::date;
 
   if row_cnt=0 then
@@ -92,35 +96,11 @@ begin
       set os_total_ord_cnt= os_total_ord_cnt+1, os_total_smm= os_total_smm+New.or_tprice, os_total_bk_cnt= os_total_bk_cnt+New.or_count
     where os_date=New.or_date::date;
   end if;
-return New;
-end;
-$BODY$
-language plpgsql;
-
-create or replace function fOnRemOrders()
-returns trigger
-as
-$BODY$
-declare
-  ord_cnt      integer;
-begin
-  begin
-      select os_total_ord_cnt into ord_cnt from bookshop.OrdersSummary os where os.os_date= Old.or_date::date;
-      if ord_cnt>1 then
-        update bookshop.OrdersSummary
-          set os_total_ord_cnt= os_total_ord_cnt-1, os_total_smm= os_total_smm-Old.or_tprice, os_total_bk_cnt=os_total_bk_cnt-Old.or_count
-        where os_date=New.or_date::date;
-        if Old.or_status='Done' then
-          update bookshop.OrdersSummary
-            set os_done_ord_cnt= os_done_ord_cnt-1, os_done_smm= os_done_smm-Old.or_tprice, os_done_bk_cnt= os_done_bk_cnt-Old.or_count
-          where os_date=New.or_date::date;
-        end if;
-      else
-       delete from bookshop.OrdersSummary os where os.os_date= Old.or_date::date;
-      end if;
-    exception when no_data_found then
-      ord_cnt:=0;
-  end;
+  if New.or_status='Done' then
+    update bookshop.OrdersSummary
+       set os_done_ord_cnt= os_done_ord_cnt+1, os_done_smm= os_done_smm+New.or_tprice, os_done_bk_cnt= os_done_bk_cnt+New.or_count
+    where os_date=New.or_date::date;
+  end if;
 return New;
 end;
 $BODY$
@@ -132,30 +112,27 @@ as
 $BODY$
 declare
 begin
+  if New.or_status='Cancelled' and Old.or_status<>'Cancelled' then
+    update bookshop.Products set pr_count= pr_count+Old.or_count where pr_id=Old.pr_id;
+  end if;
+
   delete from bookshop.OrdersSummary os where os.os_date= Old.or_date::date;
   insert into bookshop.OrdersSummary(os_date,os_total_ord_cnt,os_total_smm,os_total_bk_cnt, os_done_ord_cnt,os_done_smm,os_done_bk_cnt)
     select Old.or_date::date,count(or_id),sum(or_tprice),sum(or_count),
        sum(case when or_status='Done' then 1 else 0 end),
        sum(case when or_status='Done' then or_tprice else 0 end),
        sum(case when or_status='Done' then or_count else 0 end)
-    from bookshop.Orders where or_date::date=Old.or_date::date;
+    from bookshop.Orders where or_date::date=Old.or_date::date and or_status<>'Cancelled';
 return New;
 end;
 $BODY$
 language plpgsql;
 
-
 create trigger trOnInsertOrders
-after insert on Orders for each row
-execute function fOnAddOrders();
-
-create trigger trOnDeletetOrders
-after delete on Orders for each row
-execute function fOnRemOrders();
+after insert on Orders for each row execute function fOnAddOrders();
 
 create trigger trOnUpdateOrders
-after update on Orders for each row
-execute function fOnModifOrders();
+after update on Orders for each row execute function fOnModifOrders();
 
 --Функции для сценариев тестирования pgbench  
 --Функция создания нового заказа (основное действие Insert)  
@@ -169,11 +146,6 @@ $BODY$
   returning *;
 $BODY$
 language sql;
-
---проверим вызов  
-select * from (select floor(random()*max(ct_id))+1 id from bookshop.Customers) c,
-              (select floor(random()*max(pr_id))+1 id from bookshop.Products) p,
-              bookshop.fNewOrder(c.id::int,p.id::int,(current_date-(floor(random()*90)+1)::int)::timestamp,5);
 
 --Функция для инвентаризации кол-ва книг на складе (основное действие Update)  
 create or replace function fModifProducts(ProdID integer,ProdCnt integer)
