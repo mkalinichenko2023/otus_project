@@ -1,5 +1,4 @@
 --создать базу, схему и таблицы
-
 create database mybookshop;
 
 \c mybookshop;
